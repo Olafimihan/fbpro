@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Transactions Reversals</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      <!-- <li class="nav-item d-none d-sm-inline-block">
+        <a href="../../index3.html" class="nav-link">Home</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="#" class="nav-link">Contact</a>
+      </li> -->
+    </ul>
+
+    <!-- SEARCH FORM -->
+    <!-- <form class="form-inline ml-3">
+      <div class="input-group input-group-sm">
+        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+        <div class="input-group-append">
+          <button class="btn btn-navbar" type="submit">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </form> -->
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+      <!-- Messages Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-comments"></i>
+          <span class="badge badge-danger navbar-badge">3</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          
+          <a href="#" class="dropdown-item">
+
+            <!-- Message Start -->
+            <div class="media">
+ 
+            </div> 
+          </a>
+
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <!-- <img src="../../dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  John Pierce
+                  <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">I got your message bro</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div> -->
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <!-- <img src="../../dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Nora Silvester
+                  <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">The subject goes here</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div> -->
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <!-- <a href="#" class="dropdown-item dropdown-footer">See All Messages</a> -->
+        </div>
+      </li>
+      <!-- Notifications Dropdown Menu -->
+      <!-- <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-bell"></i>
+          <span class="badge badge-warning navbar-badge">15</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <span class="dropdown-item dropdown-header">15 Notifications</span>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-envelope mr-2"></i> 4 new messages
+            <span class="float-right text-muted text-sm">3 mins</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-users mr-2"></i> 8 friend requests
+            <span class="float-right text-muted text-sm">12 hours</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-file mr-2"></i> 3 new reports
+            <span class="float-right text-muted text-sm">2 days</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+        </div>
+      </li> -->
+
+      <!-- <li class="nav-item">
+        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+          <i class="fas fa-th-large"></i>
+        </a>
+      </li> -->
+
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="../../index3.html" class="brand-link">
+      <img src="../../dist/img/AdminLTELogo.png"
+           alt="AdminLTE Logo"
+           class="brand-image img-circle elevation-3"
+           style="opacity: .8">
+      <span class="brand-text font-weight-light">Fambook</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <!-- <img src="../../dist/img/avatart.png" class="img-circle elevation-2" alt="User Image"> -->
+        </div>
+        <div class="info">
+          <a href="#" class="d-block">Administrator</a>
+        </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+               <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-home"></i>
+                  <p>
+                    Setup Module
+                    <i class="fas fa-angle-left right"></i>
+                    <span class="badge badge-info right"></span>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="penSetup.html" class="nav-link">
+                      <i class="fa fa-home nav-icon"></i>
+                      <p>Pens</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="customersetup.html" class="nav-link">
+                      <i class="far fa-user nav-icon"></i>
+                      <p>Customer</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="suppliersetup.html" class="nav-link">
+                      <i class="far fa-user nav-icon"></i>
+                      <p>Supplier</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="eggSetup.html" class="nav-link">
+                      <i class="fa fa-shopping-basket nav-icon"></i>
+                      <p>Eggs</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="feedsetup.html" class="nav-link">
+                      <i class="fas fa-blender	 nav-icon"></i>
+                      <p>Feeds</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="drugsetup.html" class="nav-link">
+                      <i class="fa fa-flask nav-icon"></i>
+                      <p>Drugs</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="505.html" class="nav-link">
+                      <i class="fas fa-university	 nav-icon"></i>
+                      <p>Banks</p>
+                    </a>
+                  </li>
+                  
+                  <li class="nav-item">
+                    <a href="500.html" class="nav-link">
+                      <i class="fa fa-building nav-icon"></i>
+                      <p>Account Group</p>
+                    </a>
+                  </li>
+                  
+                  <li class="nav-item">
+                    <a href="500.html" class="nav-link">
+                      <i class="fa fa-building nav-icon"></i>
+                      <p>Account SubGroup</p>
+                    </a>
+                  </li>
+    
+                  <li class="nav-item">
+                    <a href="500.html" class="nav-link">
+                      <i class="fa fa-book nav-icon"></i>
+                      <p>GL. Maintenance</p>
+                    </a>
+                  </li>
+    
+                </ul>
+              </li>
+    
+              <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-book"></i>
+                  <p>
+                    Accounts Module
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="customerDebitnote.html" class="nav-link">
+                      <i class="fa fa-building nav-icon"></i>
+                      <p>Customer Debit notes </p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="customerCreditnote.html" class="nav-link">
+                      <i class="fa fa-building nav-icon"></i>
+                      <p>Customer Credit notes</p>
+                    </a>
+                  </li>
+    
+                  <li class="nav-item">
+                    <a href="supplierDebitnote.html" class="nav-link">
+                      <i class="fa fa-building nav-icon"></i>
+                      <p>Supplier Debit notes</p>
+                    </a>
+                  </li>
+                  
+                  <li class="nav-item">
+                    <a href="supplierCreditnote.html" class="nav-link">
+                      <i class="fa fa-building nav-icon"></i>
+                      <p>Supplier Credit notes</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="journal.html" class="nav-link">
+                      <i class="fa fa-building nav-icon"></i>
+                      <p>Journal Entry</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="stockadjustment.html" class="nav-link">
+                      <i class="fa fa-building nav-icon"></i>
+                      <p>Stock Adjustment</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="reversal.html" class="nav-link">
+                      <i class="fa fa-building nav-icon"></i>
+                      <p>Transactions Reversals</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              
+              <li class="nav-item has-treeview" id="admin1">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-tree"></i>
+                  <p>
+                    Admin Module
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="500.html" class="nav-link">
+                      <i class="fa fa-filter nav-icon"></i>
+                      <p>End of Pen Process</p>
+                    </a>
+                  </li>
+                  
+                  <li class="nav-item">
+                    <a href="equilibriumsetting.html" class="nav-link">
+                      <i class="fa fa-cog nav-icon"></i>
+                      <p>Equilibrium Settings</p>
+                    </a>
+                  </li>
+                   
+                </ul>
+              </li>
+              
+              <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-edit"></i>
+                  <p>
+                    Admin Reports
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="pens.html" class="nav-link">
+                      <i class="fa fa-filter nav-icon"></i>
+                      <p>Pens List</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="customerledger.html" class="nav-link">
+                      <i class="fa fa-cog nav-icon"></i>
+                      <p>Customer Ledger</p>
+                    </a>
+                  </li>
+                   
+                  <li class="nav-item">
+                    <a href="supplierledger.html" class="nav-link">
+                      <i class="fa fa-cog nav-icon"></i>
+                      <p>Supplier Ledger</p>
+                    </a>
+                  </li>
+    
+                  <li class="nav-item">
+                    <a href="debtorslist.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Debtors List</p>
+                    </a>
+                  </li>
+    
+                  <li class="nav-item">
+                    <a href="creditorslist.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Creditors List</p>
+                    </a>
+                  </li>
+    
+                  <li>
+                    <a href="contribution.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Contribution</p>
+                    </a>
+                  </li>
+    
+                  <li class="nav-item">
+                    <a href="investment.html" class="nav-link">
+                      <i class="fa fa-cog nav-icon"></i>
+                      <p>Cost Analysis</p>
+                    </a>
+                  </li>
+    
+                  <li class="nav-item">
+                    <a href="salesanalysis.html" class="nav-link">
+                      <i class="fa fa-columns nav-icon"></i>
+                      <p>Sales</p>
+                    </a>
+                  </li>
+    
+                  <li class="nav-item">
+                    <a href="production.html" class="nav-link">
+                      <i class="fa fa-cubes nav-icon"></i>
+                      <p>Production</p>
+                    </a>
+                  </li>
+    
+                  <li class="nav-item">
+                    <a href="mortality.html" class="nav-link">
+                      <i class="fa fa-ambulance nav-icon"></i>
+                      <p>Mortality</p>
+                    </a>
+                  </li>
+    
+                  <li class="nav-item">
+                    <a href="expense.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Expense Report</p>
+                    </a>
+                  </li>
+                  
+                  <li class="nav-item">
+                    <a href="stockCard.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Stock Movement Report</p>
+                    </a>
+                  </li>
+                  
+                  <li class="nav-item">
+                    <a href="productslist.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Products Stock Report</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="feedslist.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Feed Stock Report</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="drugslist.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Drugs Stock Report</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="feedusage.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Feeds/Drugs Usage Report</p>
+                    </a>
+                  </li>
+    
+                  <!-- <li class="nav-item">
+                    <a href="drugslist.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Feed Usage Report</p>
+                    </a>
+                  </li> -->
+    
+                </ul>
+              </li>
+    
+              <li class="nav-item has-treeview">
+                
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-chart-bar"></i>
+                  <p>
+                    Graph Report
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
+    
+                <ul class="nav nav-treeview">
+                  
+                  <li class="nav-item">
+                    <a href="graph_rep.html" class="nav-link">
+                      <i class="far fa-chart-pie nav-icon"></i>
+                      <p>Production </p>
+                    </a>
+                  </li>
+    
+                  <li class="nav-item">
+                    <a href="graphMortality.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Mortality</p>
+                    </a>
+                  </li>
+    
+                  <!-- <li class="nav-item">
+                    <a href="pages/tables/jsgrid.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>jsGrid</p>
+                    </a>
+                  </li> -->
+    
+                </ul>
+    
+              </li> 
+                
+              <li class="nav-item has-treeview" id="accts">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-chart-bar"></i>
+                  <p>
+                    Financial Report
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  
+    
+                  <!-- <li class="nav-item">
+                    <a href="profitability.html" class="nav-link">
+                      <i class="far fa-dollar nav-icon"></i>
+                      <p>Profitability</p>
+                    </a>
+                  </li> -->
+                  <li class="nav-item">
+                    <a href="profitandloss.html" class="nav-link">
+                      <i class="far fa-pounds nav-icon"></i>
+                      <p>Profit and Loss</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="trialbalance.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Trial Balance</p>
+                    </a>
+                  </li>
+    
+                  <li class="nav-item">
+                    <a href="glhistory.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p> GL. Transactions</p>
+                    </a>
+                  </li>
+                  
+                </ul>
+              </li> 
+              
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h4 style="text-align: center;">Transactions Reversal</h4>
+          </div>
+          <!-- <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">User Profile</li>
+            </ol>
+          </div> -->
+
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          
+            
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header p-2">
+                <ul class="nav nav-pills">
+                  <li class="nav-item"><a class="nav-link active" href="#feeds" data-toggle="tab" style="font-size: 12px;">Feed Procurement</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#drugs" data-toggle="tab" style="font-size: 12px;">Drugs Procurement</a></li>
+                  
+                  <li class="nav-item"><a class="nav-link" href="#sales" data-toggle="tab" style="font-size: 12px;">Sales</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#production" data-toggle="tab" style="font-size: 12px;">Production</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#mortality" data-toggle="tab" style="font-size: 12px;">Mortality</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#f_usage" data-toggle="tab" style="font-size: 12px;">Feed Usage</a></li>
+                </ul>
+              </div><!-- /.card-header -->
+              <div class="card-body">
+                <div class="tab-content">
+
+                  <div class="tab-pane" id="f_usage">
+
+                  </div> <!--tab end-->
+
+                  <div class="tab-pane" id="drugs">
+
+                  </div> <!--tab end-->
+                  <div class="tab-pane" id="production">
+
+                  </div> <!--tab end-->
+                  <div class="tab-pane" id="mortality">
+
+                  </div> <!--tab end-->
+
+                  <div class="tab-pane" id="feeds">
+                    <h4 style="text-align: center; font-size: 24px; font-weight: bolder;">Feed Procured Invoice Reversal</h4>
+                    <div class="form-group row">
+                      <div class="col-md-4">
+                        <div class="form-group row">
+                          <label for="suppid" class="col-sm-4 col-form-label">Supplier</label>
+                          <div class="col-sm-8">
+                            <select class="form-control" id="supplier_id">
+                                
+                            </select>
+                          </div>
+                        </div>
+
+                        <div class="form-group row">
+                          <label for="inputEmail" class="col-sm-4 col-form-label">Invoice Date:</label>
+                          <div class="col-sm-8">
+                              <input type="date" class="form-control" id="f_dated" >
+                          </div>
+                        </div>
+                        
+                        <div class="form-group row">
+                          <label for="invoice" class="col-sm-4 col-form-label">Invoice #</label>
+                          <div class="col-sm-8">
+                              <input type="text" class="form-control" id="f_invoice" placeholder="Invoice number">
+                          </div>
+                        </div>
+                        
+                        <div class="form-group row">
+                          <div class="offset-sm-2 col-sm-10">
+                            <button type="button" id="f_reverse"  class="btn btn-danger" disabled>Reverse</button>
+                            <button type="button" id="f_retrieve" class="btn btn-primary"  >Retrieve</button>
+                          </div>
+                        </div>
+
+                        <!-- <div class="form-group row">
+                          <div class="offset-sm-2 col-sm-10">
+                            <button type="submit" class="btn btn-danger">Submit</button>
+                          </div>
+                        </div> -->
+                    </div>
+
+                    <div class="col-md-8">
+                        <div class="card-body">
+                          <table id="example1" style="font-size: 12px;" class="table table-bordered table-striped">
+                            <thead>
+                              <tr style="font-size: 13px; font-weight: bolder;">
+                                <th>S/N</th>
+                                <th>Date</th>
+                                <th>Product Name</th>
+                                <th>Qty</th>
+                                <!-- <th>Cost</th> -->
+                                <th>Amount</th> 
+                                <!-- <th>Previous Balance</th>  -->
+                                <!-- <th> Balance</th>  -->
+                              </tr>
+                            </thead>
+                            <tbody id="feed_data">
+                                
+                                  
+                            </tbody>
+                            <tfoot>
+                              <tr style="font-size: 13px;">
+                                <th>S/N</th>
+                                <th>Date</th>
+                                <th>Product Name</th>
+                                <th>Qty</th>
+                                <!-- <th>Cost</th> -->
+                                <th>Amount</th> 
+                                <!-- <th>Previous Balance</th>  -->
+                                <!-- <th> Balance</th>  -->
+                              </tr>
+                            </tfoot>
+                          </table>
+                        </div>
+                      </div>
+                      
+                    </div>
+                  </div> <!--end of column tab--> 
+
+                  <div class="tab-pane" id="sales">
+                    <h4 style="text-align: center; font-size: 24px; font-weight: bolder;">Sales Invoice Reversal</h4>
+                    
+                    <div class="form-group row">
+                      <div class="col-md-4">
+                        <div class="form-group row">
+                          <label for="inputName" class="col-sm-4 col-form-label">Customer</label>
+                          <div class="col-sm-8">
+                            <select class="form-control" id="custid">
+                                
+                            </select>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label for="inputEmail" class="col-sm-4 col-form-label">Invoice Date:</label>
+                          <div class="col-sm-8">
+                              <input type="date" class="form-control" id="dated" >
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label for="invoice" class="col-sm-4 col-form-label">Invoice #</label>
+                          <div class="col-sm-8">
+                              <input type="text" class="form-control" id="invoice" placeholder="Invoice number">
+                          </div>
+                        </div>
+                        
+                        <div class="form-group row">
+                          <div class="offset-sm-2 col-sm-10">
+                            <button type="button" id="reverse"  class="btn btn-danger" disabled>Reverse</button>
+                            <button type="button" id="sales_retrieve" class="btn btn-primary"  >Retrieve</button>
+                          </div>
+                        </div>
+
+                        <div class="form-group row">
+                          <div class="offset-sm-2 col-sm-10">
+                            <button type="submit" class="btn btn-danger">Submit</button>
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-8">
+                        <div class="card-body">
+                          <table id="example1" style="font-size: 12px;" class="table table-bordered table-striped">
+                            <thead>
+                              <tr style="font-size: 13px; font-weight: bolder;">
+                                <th>S/N</th>
+                                <th>Date</th>
+                                <th>Product Name</th>
+                                <th>Qty</th>
+                                <th>Cost</th>
+                                <th>Amount</th> 
+                                <!-- <th>Previous Balance</th>  -->
+                                <!-- <th> Balance</th>  -->
+                              </tr>
+                            </thead>
+                            <tbody id="sales_data">
+                                
+                                  
+                            </tbody>
+                            <tfoot>
+                              <tr style="font-size: 13px;">
+                                <th>S/N</th>
+                                <th>Date</th>
+                                <th>Product Name</th>
+                                <th>Qty</th>
+                                <th>Cost</th>
+                                <th>Amount</th> 
+                                <!-- <th>Previous Balance</th>  -->
+                                <!-- <th> Balance</th>  -->
+                              </tr>
+                            </tfoot>
+                          </table>
+                        </div>
+                      </div>
+                      
+                    </div>
+                  </div> <!--end of column tab--> 
+
+                </div>
+                <!-- /.tab-content -->
+              </div><!-- /.card-body -->
+            </div>
+            <!-- /.nav-tabs-custom -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+      <b>Version</b> 3.0.4
+    </div>
+    <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
+    reserved.
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="../../plugins/jquery/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js" integrity="sha256-bQmrZe4yPnQrLTY+1gYylfNMBuGfnT/HKsCGX+9Xuqo=" crossorigin="anonymous"></script>
+
+<!-- Bootstrap 4 -->
+<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../../dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../../dist/js/demo.js"></script>
+
+<script src="dist/js/socket.js"></script>
+
+<!-- <script src="../../dist/js/socket.js"></script> -->
+
+  <script>
+
+    function deleter(id, type){
+      switch(type){
+        case "sales": 
+            // alert(id);
+            data_socket_transporter.emit('delete_sales', id);
+            data_socket_transporter.on('delete_sales', (id) => {
+              $('#sales_retrieve').click();
+
+            });
+
+            break;
+
+        case "feed_proc":
+            data_socket_transporter.emit('delete_feed', {id: id});
+            data_socket_transporter.on  ('delete_feed', (resp) => {
+
+            })
+             
+            break;
+
+        case "drug_proc":
+            //eggs
+            val += "<option value='" + row.goods_id + "'>";
+            val += row.goods_description;  
+            val += "</option>";
+          
+          default:
+
+      }
+
+    }
+
+    $(function(){
+        console.log(data_socket_transporter)
+
+        data_socket_transporter.emit('get gl drop down');
+
+        data_socket_transporter.on('get gl drop down', (data) => { 
+            // console.log(data)
+            $("#custid").html(data.cust_RS);
+            $("#supplier_id").html(data.supp_Rs);
+            // $("#cr_acct").html(data.val); 
+        });
+
+        $('#sales_retrieve').click(function() {
+          data_socket_transporter.emit('getinvoice_data', {
+            cust_id: $('#custid') .val() , 
+            dated:   $('#dated')  .val(), 
+            invoice: $('#invoice').val()
+          });
+
+          data_socket_transporter.on('getinvoice_data', (respObj) => {
+            $('#sales_data').html(respObj.sales);
+          })
+
+        });
+
+        $('#f_retrieve').click(function() {
+          // alert('clicked...')
+          var suppid = document.getElementById('supplier_id').value; // $('#supplier_id').val();
+          // alert(suppid);
+
+          data_socket_transporter.emit('getfeedinvoice_data', {
+            supp_id: $('#supplier_id').val(), 
+            dated:   $('#f_dated')    .val(), 
+            invoice: $('#f_invoice')  .val()
+          });
+
+          data_socket_transporter.on('getfeedinvoice_data', (respObj) => {
+            $('#feed_data').html(respObj.sales);
+          })
+
+        })
+
+    });
+
+  </script>
+
+
+</body>
+</html>

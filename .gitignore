@@ -1,0 +1,8 @@
+*.js
+*.sql
+utilities/
+connection/
+views/html/pages
+views/html/docs
+views/html/build
+views/html/plugins
