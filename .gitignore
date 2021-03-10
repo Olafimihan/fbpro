@@ -2,7 +2,4 @@
 *.sql
 utilities/
 connection/
-views/html/pages
-views/html/docs
-views/html/build
 
