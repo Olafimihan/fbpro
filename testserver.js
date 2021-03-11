@@ -17,16 +17,7 @@ let path = require('path');
 let nodemailer = require('nodemailer');
 let mailer = require('./mailer/mailer');
 
-let pen_service = require('./pen.js');
-let doc_Service = require('./doc.js');
-let GL_Service = require('./GLServiceCALLs.js');
-let production_Service = require('./productionService.js');
-let mortality_Service = require('./mortalityService.js');
-let sales_Service = require('./sales_Service.js');
-let contribution_Service = require('./contribution.js');
-
-let routes = require('./routes.js');
-
+ 
 var numeral = require('numeral');
 
 // myLogModule.info('Node.js started');
@@ -47,7 +38,6 @@ let io = socketIO(server);
 
 let fs = require('fs');
  
-let getAlltotal = require('./utilities/getTotalBoardContent');
 let dateFormat = require('dateformat');
 const { Console } = require('console');
 const { connect } = require('http2');
