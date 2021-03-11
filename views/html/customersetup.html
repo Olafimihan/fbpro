@@ -144,7 +144,7 @@
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <div w3-include-html="menulist.html"></div>
+  <div id="includemenu" w3-include-html="menulist.html"></div>
   
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -286,6 +286,10 @@
 
 
 includeHTML()
+
+$(function(){
+  $("#includemenu").load("menulist.html"); 
+});
 
 function includeHTML() {
   var z, i, elmnt, file, xhttp;
