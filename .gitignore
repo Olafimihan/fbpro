@@ -1,4 +1,4 @@
-*.js
+farmbookserver.js
 *.sql
 utilities/
 connection/
