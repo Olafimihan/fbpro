@@ -1,5 +1,6 @@
 farmbookserver.js
 *.sql
+.gitignore
 utilities/
 connection/
 
