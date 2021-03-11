@@ -15,7 +15,6 @@ let multer = require('multer');
 let path = require('path');
 
 let nodemailer = require('nodemailer');
-let mailer = require('./mailer/mailer');
 
  
 var numeral = require('numeral');
