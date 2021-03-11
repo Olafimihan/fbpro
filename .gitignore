@@ -1,6 +1,6 @@
-farmbookserver.js
 *.sql
 .gitignore
 utilities/
 connection/
 
+node_modules
