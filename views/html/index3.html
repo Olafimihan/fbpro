@@ -5,28 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>AdminLTE 3 | Dashboard 3</title>
+  <title>Farmbook v1.0</title>
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
-  <!-- IonIcons -->
-  <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
-<!--
-BODY TAG OPTIONS:
-=================
-Apply one or more of the following classes to to the body tag
-to get the desired effect
-|---------------------------------------------------------|
-|LAYOUT OPTIONS | sidebar-collapse                        |
-|               | sidebar-mini                            |
-|---------------------------------------------------------|
--->
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -36,15 +26,15 @@ to get the desired effect
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
+        <a href="index.html" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
+        <!-- <a href="#" class="nav-link">Contact</a> -->
       </li>
     </ul>
 
     <!-- SEARCH FORM -->
-    <form class="form-inline ml-3">
+    <!-- <form class="form-inline ml-3">
       <div class="input-group input-group-sm">
         <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
         <div class="input-group-append">
@@ -53,7 +43,7 @@ to get the desired effect
           </button>
         </div>
       </div>
-    </form>
+    </form> -->
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
@@ -65,58 +55,24 @@ to get the desired effect
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Brad Diesel
-                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">Call me whenever you can...</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
+             
           </a>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  John Pierce
-                  <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">I got your message bro</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
+
+             
+
           </a>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Nora Silvester
-                  <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">The subject goes here</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
+ 
           </a>
           <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+          <!-- <a href="#" class="dropdown-item dropdown-footer">See All Messages</a> -->
         </div>
       </li>
       <!-- Notifications Dropdown Menu -->
-      <li class="nav-item dropdown">
+      <!-- <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="far fa-bell"></i>
           <span class="badge badge-warning navbar-badge">15</span>
@@ -130,18 +86,18 @@ to get the desired effect
           </a>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item">
-            <i class="fas fa-users mr-2"></i> 8 friend requests
+            <i class="fas fa-users mr-2"></i> 8 new server pulls
             <span class="float-right text-muted text-sm">12 hours</span>
           </a>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item">
-            <i class="fas fa-file mr-2"></i> 3 new reports
+            <i class="fas fa-file mr-2"></i> 3 new bandwidth reports
             <span class="float-right text-muted text-sm">2 days</span>
           </a>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
         </div>
-      </li>
+      </li> -->
       <li class="nav-item">
         <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button"><i
             class="fas fa-th-large"></i></a>
@@ -151,12 +107,13 @@ to get the desired effect
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <!-- <div w3-include-html="menulist.html"></div> -->
+  <aside class="main-sidebar sidebar-dark-success elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
       <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <span class="brand-text font-weight-light">Farmbook v1.0</span>
     </a>
 
     <!-- Sidebar -->
@@ -164,542 +121,393 @@ to get the desired effect
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="dist/img/avatar04.png" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block">Admininistrator</a>
         </div>
       </div>
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Dashboard
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="./index.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v1</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./index2.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v2</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./index3.html" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v3</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Widgets
-                <span class="right badge badge-danger">New</span>
-              </p>
-            </a>
-          </li>
+           
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
+              <i class="nav-icon fas fa-home"></i>
               <p>
-                Layout Options
+                Setup Module
                 <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-info right">6</span>
+                <span class="badge badge-info right"></span>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/layout/top-nav.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Top Navigation</p>
+                <a href="penSetup.html" class="nav-link">
+                  <i class="fa fa-home nav-icon"></i>
+                  <p>Pens</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Top Navigation + Sidebar</p>
+                <a href="customersetup.html" class="nav-link">
+                  <i class="far fa-user nav-icon"></i>
+                  <p>Customer</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/boxed.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Boxed</p>
+                <a href="suppliersetup.html" class="nav-link">
+                  <i class="far fa-user nav-icon"></i>
+                  <p>Supplier</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/fixed-sidebar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Fixed Sidebar</p>
+                <a href="eggSetup.html" class="nav-link">
+                  <i class="fa fa-shopping-basket nav-icon"></i>
+                  <p>Eggs</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/fixed-topnav.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Fixed Navbar</p>
+                <a href="feedsetup.html" class="nav-link">
+                  <i class="fas fa-blender	 nav-icon"></i>
+                  <p>Feeds</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/fixed-footer.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Fixed Footer</p>
+                <a href="drugsetup.html" class="nav-link">
+                  <i class="fa fa-flask nav-icon"></i>
+                  <p>Drugs</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/collapsed-sidebar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Collapsed Sidebar</p>
+                <a href="505.html" class="nav-link">
+                  <i class="fas fa-university	 nav-icon"></i>
+                  <p>Banks</p>
                 </a>
               </li>
+              
+              <li class="nav-item">
+                <a href="500.html" class="nav-link">
+                  <i class="fa fa-building nav-icon"></i>
+                  <p>Account Group</p>
+                </a>
+              </li>
+              
+              <li class="nav-item">
+                <a href="500.html" class="nav-link">
+                  <i class="fa fa-building nav-icon"></i>
+                  <p>Account SubGroup</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="500.html" class="nav-link">
+                  <i class="fa fa-book nav-icon"></i>
+                  <p>GL. Maintenance</p>
+                </a>
+              </li>
+
             </ul>
           </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-chart-pie"></i>
-              <p>
-                Charts
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/charts/chartjs.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>ChartJS</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/charts/flot.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Flot</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/charts/inline.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Inline</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tree"></i>
-              <p>
-                UI Elements
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/UI/general.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>General</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/UI/icons.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Icons</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/UI/buttons.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Buttons</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/UI/sliders.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Sliders</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/UI/modals.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Modals & Alerts</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/UI/navbar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Navbar & Tabs</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/UI/timeline.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Timeline</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/UI/ribbons.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Ribbons</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
-              <p>
-                Forms
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/forms/general.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>General Elements</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/forms/advanced.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Advanced Elements</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/forms/editors.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Editors</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/forms/validation.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Validation</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-table"></i>
-              <p>
-                Tables
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/tables/simple.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Simple Tables</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/tables/data.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>DataTables</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/tables/jsgrid.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>jsGrid</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-header">EXAMPLES</li>
-          <li class="nav-item">
-            <a href="pages/calendar.html" class="nav-link">
-              <i class="nav-icon fas fa-calendar-alt"></i>
-              <p>
-                Calendar
-                <span class="badge badge-info right">2</span>
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="pages/gallery.html" class="nav-link">
-              <i class="nav-icon far fa-image"></i>
-              <p>
-                Gallery
-              </p>
-            </a>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon far fa-envelope"></i>
-              <p>
-                Mailbox
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/mailbox/mailbox.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Inbox</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/mailbox/compose.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Compose</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/mailbox/read-mail.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Read</p>
-                </a>
-              </li>
-            </ul>
-          </li>
+
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
               <p>
-                Pages
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/examples/invoice.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Invoice</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/profile.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Profile</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/e-commerce.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>E-commerce</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/projects.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Projects</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/project-add.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Project Add</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/project-edit.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Project Edit</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/project-detail.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Project Detail</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/contacts.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Contacts</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon far fa-plus-square"></i>
-              <p>
-                Extras
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/examples/login.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Login</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/register.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Register</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/forgot-password.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Forgot Password</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/recover-password.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Recover Password</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/lockscreen.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Lockscreen</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/legacy-user-menu.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Legacy User Menu</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/language-menu.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Language Menu</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/404.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Error 404</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/500.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Error 500</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/pace.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Pace</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/blank.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Blank Page</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="starter.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Starter Page</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-header">MISCELLANEOUS</li>
-          <li class="nav-item">
-            <a href="https://adminlte.io/docs/3.0" class="nav-link">
-              <i class="nav-icon fas fa-file"></i>
-              <p>Documentation</p>
-            </a>
-          </li>
-          <li class="nav-header">MULTI LEVEL EXAMPLE</li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="fas fa-circle nav-icon"></i>
-              <p>Level 1</p>
-            </a>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-circle"></i>
-              <p>
-                Level 1
+                Accounts Module
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Level 2</p>
+                <a href="receipt.html" class="nav-link">
+                  <i class="fa fa-building nav-icon"></i>
+                  <p>Customer Receipt </p>
                 </a>
-              </li>
-              <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>
-                    Level 2
-                    <i class="right fas fa-angle-left"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="#" class="nav-link">
-                      <i class="far fa-dot-circle nav-icon"></i>
-                      <p>Level 3</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#" class="nav-link">
-                      <i class="far fa-dot-circle nav-icon"></i>
-                      <p>Level 3</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#" class="nav-link">
-                      <i class="far fa-dot-circle nav-icon"></i>
-                      <p>Level 3</p>
-                    </a>
-                  </li>
-                </ul>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Level 2</p>
+                <a href="payment.html" class="nav-link">
+                  <i class="fa fa-building nav-icon"></i>
+                  <p>Supplier Payment </p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="customerDebitnote.html" class="nav-link">
+                  <i class="fa fa-building nav-icon"></i>
+                  <p>Customer Debit notes </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="customerCreditnote.html" class="nav-link">
+                  <i class="fa fa-building nav-icon"></i>
+                  <p>Customer Credit notes</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="supplierDebitnote.html" class="nav-link">
+                  <i class="fa fa-building nav-icon"></i>
+                  <p>Supplier Debit notes</p>
+                </a>
+              </li>
+              
+              <li class="nav-item">
+                <a href="supplierCreditnote.html" class="nav-link">
+                  <i class="fa fa-building nav-icon"></i>
+                  <p>Supplier Credit notes</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="journal.html" class="nav-link">
+                  <i class="fa fa-building nav-icon"></i>
+                  <p>Journal Entry</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="stockadjustment.html" class="nav-link">
+                  <i class="fa fa-building nav-icon"></i>
+                  <p>Stock Adjustment</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="reversal.html" class="nav-link">
+                  <i class="fa fa-building nav-icon"></i>
+                  <p>Transactions Reversals</p>
                 </a>
               </li>
             </ul>
           </li>
-          <li class="nav-item">
+          
+          <li class="nav-item has-treeview" id="admin1">
             <a href="#" class="nav-link">
-              <i class="fas fa-circle nav-icon"></i>
-              <p>Level 1</p>
+              <i class="nav-icon fas fa-tree"></i>
+              <p>
+                Admin Module
+                <i class="fas fa-angle-left right"></i>
+              </p>
             </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="500.html" class="nav-link">
+                  <i class="fa fa-filter nav-icon"></i>
+                  <p>End of Pen Process</p>
+                </a>
+              </li>
+              
+              <li class="nav-item">
+                <a href="equilibriumsetting.html" class="nav-link">
+                  <i class="fa fa-cog nav-icon"></i>
+                  <p>Equilibrium Settings</p>
+                </a>
+              </li>
+               
+            </ul>
           </li>
-          <li class="nav-header">LABELS</li>
-          <li class="nav-item">
+          
+          <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon far fa-circle text-danger"></i>
-              <p class="text">Important</p>
+              <i class="nav-icon fas fa-edit"></i>
+              <p>
+                Admin Reports
+                <i class="fas fa-angle-left right"></i>
+              </p>
             </a>
+            <ul class="nav nav-treeview">
+              <!-- <li class="nav-item">
+                <a href="penslist.html" class="nav-link">
+                  <i class="fa fa-filter nav-icon"></i>
+                  <p>Pens List</p>
+                </a>
+              </li> -->
+              <li class="nav-item">
+                <a href="customerledger.html" class="nav-link">
+                  <i class="fa fa-cog nav-icon"></i>
+                  <p>Customer Ledger</p>
+                </a>
+              </li>
+               
+              <li class="nav-item">
+                <a href="supplierledger.html" class="nav-link">
+                  <i class="fa fa-cog nav-icon"></i>
+                  <p>Supplier Ledger</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="debtorslist.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Debtors List</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="creditorslist.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Creditors List</p>
+                </a>
+              </li>
+
+              <li>
+                <a href="contribution.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Contribution</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="investment.html" class="nav-link">
+                  <i class="fa fa-cog nav-icon"></i>
+                  <p>Cost Analysis</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="salesanalysis.html" class="nav-link">
+                  <i class="fa fa-columns nav-icon"></i>
+                  <p>Sales</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="production.html" class="nav-link">
+                  <i class="fa fa-cubes nav-icon"></i>
+                  <p>Production</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="mortality.html" class="nav-link">
+                  <i class="fa fa-ambulance nav-icon"></i>
+                  <p>Mortality</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="expense.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Expense Report</p>
+                </a>
+              </li>
+              
+              <li class="nav-item">
+                <a href="stockCard.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Stock Movement Report</p>
+                </a>
+              </li>
+              
+              <li class="nav-item">
+                <a href="productslist.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Products Stock Report</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="feedslist.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Feed Stock Report</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="drugslist.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Drugs Stock Report</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="feedusage.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Feeds/Drugs Usage Report</p>
+                </a>
+              </li>
+
+              <!-- <li class="nav-item">
+                <a href="drugslist.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Feed Usage Report</p>
+                </a>
+              </li> -->
+
+            </ul>
           </li>
-          <li class="nav-item">
+
+          <li class="nav-item has-treeview">
+            
             <a href="#" class="nav-link">
-              <i class="nav-icon far fa-circle text-warning"></i>
-              <p>Warning</p>
+              <i class="nav-icon fas fa-chart-bar"></i>
+              <p>
+                Graph Report
+                <i class="fas fa-angle-left right"></i>
+              </p>
             </a>
-          </li>
-          <li class="nav-item">
+
+            <ul class="nav nav-treeview">
+              
+              <li class="nav-item">
+                <a href="graph_rep.html" class="nav-link">
+                  <i class="far fa-chart-pie nav-icon"></i>
+                  <p>Production </p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="graphMortality.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Mortality</p>
+                </a>
+              </li>
+
+              <!-- <li class="nav-item">
+                <a href="pages/tables/jsgrid.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>jsGrid</p>
+                </a>
+              </li> -->
+
+            </ul>
+
+          </li> 
+            
+          <li class="nav-item has-treeview" id="accts">
             <a href="#" class="nav-link">
-              <i class="nav-icon far fa-circle text-info"></i>
-              <p>Informational</p>
+              <i class="nav-icon fas fa-chart-bar"></i>
+              <p>
+                Financial Report
+                <i class="fas fa-angle-left right"></i>
+              </p>
             </a>
-          </li>
+            <ul class="nav nav-treeview">
+              
+
+              <!-- <li class="nav-item">
+                <a href="profitability.html" class="nav-link">
+                  <i class="far fa-dollar nav-icon"></i>
+                  <p>Profitability</p>
+                </a>
+              </li> -->
+              <li class="nav-item">
+                <a href="profitandloss.html" class="nav-link">
+                  <i class="far fa-pounds nav-icon"></i>
+                  <p>Profit and Loss</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="trialbalance.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Trial Balance</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="glhistory.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p> GL. Transactions</p>
+                </a>
+              </li>
+              
+            </ul>
+          </li> 
+            
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -707,275 +515,196 @@ to get the desired effect
     <!-- /.sidebar -->
   </aside>
 
+
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Dashboard v3</h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard v3</li>
-            </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
+     
     <!-- /.content-header -->
 
     <!-- Main content -->
-    <div class="content">
+    <section class="content">
       <div class="container-fluid">
+        
         <div class="row">
-          <div class="col-lg-6">
+          <div class="col-md-12">
             <div class="card">
-              <div class="card-header border-0">
-                <div class="d-flex justify-content-between">
-                  <h3 class="card-title">Online Store Visitors</h3>
-                  <a href="javascript:void(0);">View Report</a>
-                </div>
-              </div>
-              <div class="card-body">
-                <div class="d-flex">
-                  <p class="d-flex flex-column">
-                    <span class="text-bold text-lg">820</span>
-                    <span>Visitors Over Time</span>
-                  </p>
-                  <p class="ml-auto d-flex flex-column text-right">
-                    <span class="text-success">
-                      <i class="fas fa-arrow-up"></i> 12.5%
-                    </span>
-                    <span class="text-muted">Since last week</span>
-                  </p>
-                </div>
-                <!-- /.d-flex -->
+              <div class="card-header">
+                <h5 class="card-title">Monthly Sales Report</h5>
 
-                <div class="position-relative mb-4">
-                  <canvas id="visitors-chart" height="200"></canvas>
-                </div>
-
-                <div class="d-flex flex-row justify-content-end">
-                  <span class="mr-2">
-                    <i class="fas fa-square text-primary"></i> This Week
-                  </span>
-
-                  <span>
-                    <i class="fas fa-square text-gray"></i> Last Week
-                  </span>
-                </div>
-              </div>
-            </div>
-            <!-- /.card -->
-
-            <div class="card">
-              <div class="card-header border-0">
-                <h3 class="card-title">Products</h3>
                 <div class="card-tools">
-                  <a href="#" class="btn btn-tool btn-sm">
-                    <i class="fas fa-download"></i>
-                  </a>
-                  <a href="#" class="btn btn-tool btn-sm">
-                    <i class="fas fa-bars"></i>
-                  </a>
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                   
+                  <button type="button" class="btn btn-tool" data-card-widget="remove">
+                    <i class="fas fa-times"></i>
+                  </button>
                 </div>
               </div>
-              <div class="card-body table-responsive p-0">
-                <table class="table table-striped table-valign-middle">
-                  <thead>
-                  <tr>
-                    <th>Product</th>
-                    <th>Price</th>
-                    <th>Sales</th>
-                    <th>More</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr>
-                    <td>
-                      <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
-                      Some Product
-                    </td>
-                    <td>$13 USD</td>
-                    <td>
-                      <small class="text-success mr-1">
-                        <i class="fas fa-arrow-up"></i>
-                        12%
-                      </small>
-                      12,000 Sold
-                    </td>
-                    <td>
-                      <a href="#" class="text-muted">
-                        <i class="fas fa-search"></i>
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
-                      Another Product
-                    </td>
-                    <td>$29 USD</td>
-                    <td>
-                      <small class="text-warning mr-1">
-                        <i class="fas fa-arrow-down"></i>
-                        0.5%
-                      </small>
-                      123,234 Sold
-                    </td>
-                    <td>
-                      <a href="#" class="text-muted">
-                        <i class="fas fa-search"></i>
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
-                      Amazing Product
-                    </td>
-                    <td>$1,230 USD</td>
-                    <td>
-                      <small class="text-danger mr-1">
-                        <i class="fas fa-arrow-down"></i>
-                        3%
-                      </small>
-                      198 Sold
-                    </td>
-                    <td>
-                      <a href="#" class="text-muted">
-                        <i class="fas fa-search"></i>
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
-                      Perfect Item
-                      <span class="badge bg-danger">NEW</span>
-                    </td>
-                    <td>$199 USD</td>
-                    <td>
-                      <small class="text-success mr-1">
-                        <i class="fas fa-arrow-up"></i>
-                        63%
-                      </small>
-                      87 Sold
-                    </td>
-                    <td>
-                      <a href="#" class="text-muted">
-                        <i class="fas fa-search"></i>
-                      </a>
-                    </td>
-                  </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            <!-- /.card -->
-          </div>
-          <!-- /.col-md-6 -->
-          <div class="col-lg-6">
-            <div class="card">
-              <div class="card-header border-0">
-                <div class="d-flex justify-content-between">
-                  <h3 class="card-title">Sales</h3>
-                  <a href="javascript:void(0);">View Report</a>
-                </div>
-              </div>
+              <!-- /.card-header -->
               <div class="card-body">
-                <div class="d-flex">
-                  <p class="d-flex flex-column">
-                    <span class="text-bold text-lg">$18,230.00</span>
-                    <span>Sales Over Time</span>
-                  </p>
-                  <p class="ml-auto d-flex flex-column text-right">
-                    <span class="text-success">
-                      <i class="fas fa-arrow-up"></i> 33.1%
-                    </span>
-                    <span class="text-muted">Since last month</span>
-                  </p>
-                </div>
-                <!-- /.d-flex -->
+                <div class="row">
+                  <div class="col-md-12">
+                    <p class="text-center">
+                      <strong style="font-size: 22px; text-align: center;" id="curr_month"></strong>
+                    </p>
+                    <div class="card card-success">
+                      <div class="card-header">
+                        <h3 class="card-title">Sales Chart</h3>
+                        <!-- <h4>Month to Date Data</h4> -->
+        
+                        <div class="card-tools">
+                          <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                          </button>
+                          <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        <button class="btn btn-primary" id="preview" onclick="preview()">Preview</button>
+                  
+                        <div class="col-md-12" id="refresh">
+                          <div class="card card-primary">
+                            <div class="card-header">
+                              <h3 class="card-title">Spooling data</h3>
+                              <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="card-refresh" data-source="widgets.html" data-source-selector="#card-refresh-content"><i class="fas fa-sync-alt"></i></button>
+                              </div>
+                            </div>
+                            <div class="card-body">
+                              Wait while we prepare your report...
+                            </div>
+                          </div>
 
-                <div class="position-relative mb-4">
-                  <canvas id="sales-chart" height="200"></canvas>
-                </div>
+                          <!-- <div class="d-none" id="card-refresh-content">
+                              The body of the card after card refresh
+                          </div> -->
 
-                <div class="d-flex flex-row justify-content-end">
-                  <span class="mr-2">
-                    <i class="fas fa-square text-primary"></i> This year
-                  </span>
+                        </div>
 
-                  <span>
-                    <i class="fas fa-square text-gray"></i> Last year
-                  </span>
-                </div>
-              </div>
-            </div>
-            <!-- /.card -->
+                        <div>
+                          
+                        </div>
+                        <div class="chart">
+                          <canvas id="barChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                        </div>
 
-            <div class="card">
-              <div class="card-header border-0">
-                <h3 class="card-title">Online Store Overview</h3>
-                <div class="card-tools">
-                  <a href="#" class="btn btn-sm btn-tool">
-                    <i class="fas fa-download"></i>
-                  </a>
-                  <a href="#" class="btn btn-sm btn-tool">
-                    <i class="fas fa-bars"></i>
-                  </a>
+                        
+                      </div> 
+
+                      <div class="card-footer">
+                        <!-- <div class="row">
+                          <div class="col-sm-6">
+                            <div class="description-block border-right">
+                              <span class="description-percentage text-success"> </span>
+                              <h5 class="description-header" id="fcr">0.00</h5>
+                              <span class="description-text">FCR</span>
+                            </div> 
+                          </div>
+                        </div> -->
+                        <div class="row">
+                          <div class="col-sm-3 col-6">
+                            <div class="description-block border-right">
+                              <span class="description-percentage text-success"> </span>
+                              <h5 class="description-header" id="revenue">N0.00</h5>
+                              <span class="description-text">TOTAL REVENUE</span>
+                            </div> 
+                          </div>
+                          <div class="col-sm-3 col-6">
+                            <div class="description-block border-right">
+                              <span class="description-percentage text-warning"></span>
+                              <h5 class="description-header" id="expense">N0.00</h5>
+                              <span class="description-text">TOTAL EXPENSE</span>
+                            </div>
+                          </div>
+        
+                          <div class="col-sm-3 col-6">
+                            <div class="description-block">
+                              <span class="description-percentage text-danger"></span>
+                              <h5 class="description-header" id="production">N0.00</h5>
+                              <span class="description-text">TOTAL PRODUCTION</span>
+                            </div>
+                          </div>
+                          <div class="col-sm-3 col-6">
+                            <div class="description-block border-right">
+                              <span class="description-percentage text-success"></span>
+                              <h5 class="description-header" id="mortality">N0.00</h5>
+                              <span class="description-text">TOTAL MORTALITTY</span>
+                            </div>
+                          </div>
+                          
+                        </div>
+                      </div>
+        
+                    </div>  <!--rnd card-->
+
+                    <div class="card card-success">
+                      <div class="card-header">
+                        <h3 class="card-title" style="text-align: center;">Daily FCR</h3>
+                        <!-- <h4>Month to Date Data</h4> -->
+        
+                        <div class="card-tools">
+                          <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                          </button>
+                          <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        <!-- <button class="btn btn-primary" id="preview" onclick="preview_FCR()">Preview</button> -->
+                        
+                        <div>
+                          <table style="font-size: 11px;" id="example1" class="table table-bordered table-striped">
+                            <thead>
+                            <tr style="font-size: 11px;">
+                              
+                              <th>Date</th>
+                              <th>Pen Name</th>
+                              
+                              <th>Production</th>
+                              <th>Feed Intake</th> 
+                              <th>Feed Date</th> 
+                              <th>FCR</th> 
+                            </tr>
+                            </thead>
+                            <tbody id="fcr_resp">
+                            
+                             
+                            </tbody>
+                            <tfoot>
+                            <tr style="font-size: 11px;">
+                              <th>Date</th>
+                              <th>Pen Name</th>
+                              <th>Production</th>
+                              <th>Feed Intake</th> 
+                              <th>Feed Date</th> 
+                              <th>FCR</th> 
+                            </tr>
+                            </tfoot>
+                          </table>
+                          
+                        </div>
+                        
+                        
+                        
+                      </div> 
+
+                      
+                    </div>  <!--rnd card--> 
+                   </div>
                 </div>
-              </div>
-              <div class="card-body">
-                <div class="d-flex justify-content-between align-items-center border-bottom mb-3">
-                  <p class="text-success text-xl">
-                    <i class="ion ion-ios-refresh-empty"></i>
-                  </p>
-                  <p class="d-flex flex-column text-right">
-                    <span class="font-weight-bold">
-                      <i class="ion ion-android-arrow-up text-success"></i> 12%
-                    </span>
-                    <span class="text-muted">CONVERSION RATE</span>
-                  </p>
-                </div>
-                <!-- /.d-flex -->
-                <div class="d-flex justify-content-between align-items-center border-bottom mb-3">
-                  <p class="text-warning text-xl">
-                    <i class="ion ion-ios-cart-outline"></i>
-                  </p>
-                  <p class="d-flex flex-column text-right">
-                    <span class="font-weight-bold">
-                      <i class="ion ion-android-arrow-up text-warning"></i> 0.8%
-                    </span>
-                    <span class="text-muted">SALES RATE</span>
-                  </p>
-                </div>
-                <!-- /.d-flex -->
-                <div class="d-flex justify-content-between align-items-center mb-0">
-                  <p class="text-danger text-xl">
-                    <i class="ion ion-ios-people-outline"></i>
-                  </p>
-                  <p class="d-flex flex-column text-right">
-                    <span class="font-weight-bold">
-                      <i class="ion ion-android-arrow-down text-danger"></i> 1%
-                    </span>
-                    <span class="text-muted">REGISTRATION RATE</span>
-                  </p>
-                </div>
-                <!-- /.d-flex -->
-              </div>
+              </div> 
+
+              
+
             </div>
           </div>
-          <!-- /.col-md-6 -->
+          <!-- /.col -->
         </div>
         <!-- /.row -->
-      </div>
-      <!-- /.container-fluid -->
-    </div>
+ 
+
+      </div><!--/. container-fluid -->
+    </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
@@ -988,27 +717,336 @@ to get the desired effect
 
   <!-- Main Footer -->
   <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
+    <strong>Copyright &copy; 2020 <a href="">Farmbook </a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.0.4
+      <b>Version</b> 1.0
     </div>
   </footer>
 </div>
 <!-- ./wrapper -->
 
-<!-- REQUIRED SCRIPTS -->
 
 <!-- jQuery -->
-<script src="plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap -->
+<!-- <script src="plugins/jquery/jquery.min.js"></script>
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE -->
-<script src="dist/js/adminlte.js"></script>
-
-<!-- OPTIONAL SCRIPTS -->
 <script src="plugins/chart.js/Chart.min.js"></script>
+<script src="dist/js/adminlte.min.js"></script>
+<script src="dist/js/demo.js"></script> -->
+
+
+<!-- REQUIRED SCRIPTS -->
+<!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js" integrity="sha256-bQmrZe4yPnQrLTY+1gYylfNMBuGfnT/HKsCGX+9Xuqo=" crossorigin="anonymous"></script> -->
+<script src="socket-server.js"></script>
+
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<script src="dist/js/adminlte.js"></script>
 <script src="dist/js/demo.js"></script>
-<script src="dist/js/pages/dashboard3.js"></script>
+<script src="plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
+<script src="plugins/raphael/raphael.min.js"></script>
+<script src="plugins/jquery-mapael/jquery.mapael.min.js"></script>
+<script src="plugins/jquery-mapael/maps/usa_states.min.js"></script>
+<script src="plugins/chart.js/Chart.min.js"></script>
+<script src="dist/js/socket.js"></script>
+
+<!-- <script src="dist/js/pages/dashboard2.js"></script> -->
+
+<!-- page script -->
+<script>
+
+// includeHTML()
+
+  function includeHTML() {
+    var z, i, elmnt, file, xhttp;
+    /* Loop through a collection of all HTML elements: */
+    z = document.getElementsByTagName("*");
+    for (i = 0; i < z.length; i++) {
+      elmnt = z[i];
+      /*search for elements with a certain atrribute:*/
+      file = elmnt.getAttribute("w3-include-html");
+      if (file) {
+        /* Make an HTTP request using the attribute value as the file name: */
+        xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4) {
+            if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+            if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+            /* Remove the attribute, and call this function once more: */
+            elmnt.removeAttribute("w3-include-html");
+            includeHTML();
+          }
+        }
+        xhttp.open("GET", file, true);
+        xhttp.send();
+        /* Exit the function: */
+        return;
+      }
+    }
+  }
+  // function formatCurrency(num) {
+  //       num = num.toString().replace(/\$|\,/g,'');
+  //       if(isNaN(num))
+  //       num = "0";
+  //       sign = (num == (num = Math.abs(num)));
+  //       num = Math.floor(num*100+0.50000000001);
+  //       cents = num%100;
+  //       num = Math.floor(num/100).toString();
+  //       if(cents<10)
+  //       cents = "0" + cents;
+  //       for (var i = 0; i < Math.floor((num.length-(1+i))/3); i++)
+  //       num = num.substring(0,num.length-(4*i+3))+','+
+  //       num.substring(num.length-(4*i+3));
+  //       return (((sign)?'':'-') + '' + num + '.' + cents);
+  //   }
+
+  $(function(){
+    var dt = new Date();
+    data_socket_transporter.emit('fcr', dt);
+    
+    data_socket_transporter.on('fcr', (data)=>{
+      $('#fcr_resp').html(data.str)
+
+    });
+
+  })
+  
+  function preview(){
+    $('#refresh').show();
+    data_socket_transporter.emit('bardata');
+    data_socket_transporter.on('bardata', (data)=>{
+      console.log(data);
+      $('#refresh').hide();
+      $('.chart').show();
+      // $('.chart').show('slow');
+      
+    
+      var areaChartData = {
+        labels  : ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        datasets: [
+          {
+            label               : 'Expense',
+            backgroundColor     : 'oxblood',
+            borderColor         : 'rgba(60,141,188,0.8)',
+            pointRadius          : true,
+            pointColor          : '#3b8bba',
+            pointStrokeColor    : 'rgba(60,141,188,1)',
+            pointHighlightFill  : '#fff',
+            pointHighlightStroke: 'rgba(60,141,188,1)',
+            data                : data.expense // [28, 48, 40, 19, 86, 27, 90, 100, 80, 90, 90, 88]
+          },
+          {
+            label               : 'Sales',
+            backgroundColor     : 'lightblue',
+            borderColor         : 'rgba(210, 214, 222, 1)',
+            pointRadius         : true,
+            pointColor          : 'rgba(210, 214, 222, 1)',
+            pointStrokeColor    : '#c1c7d1',
+            pointHighlightFill  : '#fff',
+            pointHighlightStroke: 'rgba(220,220,220,1)',
+            data                : data.sales  //[65, 59, 80, 81, 56, 55, 40, 90, 80, 89, 78, 70]
+          },
+        ]
+      }
+
+      // console.info(areaChartData)
+
+      var areaChartOptions = {
+        maintainAspectRatio : false,
+        responsive : true,
+        legend: {
+          display: false
+        },
+        scales: {
+          xAxes: [{
+            gridLines : {
+              display : false,
+            }
+          }],
+          yAxes: [{
+            gridLines : {
+              display : false,
+            }
+          }]
+        }
+      }
+
+      //-------------
+      //- BAR CHART -
+      //-------------
+      var barChartCanvas = $('#barChart').get(0).getContext('2d')
+      var barChartData = jQuery.extend(true, {}, areaChartData)
+
+      // console.log(barChartData)
+
+      var temp0 = areaChartData.datasets[0]
+      var temp1 = areaChartData.datasets[1]
+      barChartData.datasets[0] = temp1
+      barChartData.datasets[1] = temp0
+
+      var barChartOptions = {
+        responsive              : true,
+        maintainAspectRatio     : false,
+        datasetFill             : false
+      }
+
+      var barChart = new Chart(barChartCanvas, {
+        type: 'bar', 
+        data: barChartData,
+        options: barChartOptions
+      }) 
+
+      var curr_month_revenue = data.curr_sal //[3]
+      var curr_month_expense = data.curr_exp //[3]
+
+      $("#revenue").html("N".strike() + Number(curr_month_revenue).toFixed(2))
+      $("#expense").html("N".strike()  + Number(curr_month_expense).toFixed(2))
+      
+      $("#production").html( Number(data.production).toFixed(0) + " crates")
+      $("#mortality"). html( Number(data.mortality).toFixed(0) + " birds")
+
+    }); //end of bardata on: event
+    
+  }
+
+  $(function () {
+    /* ChartJS
+     * -------
+     * Here we will create a few charts using ChartJS
+     */
+
+    //--------------
+    //- AREA CHART -
+    //--------------
+
+    // Get context with jQuery - using jQuery's .get() method.
+    // var areaChartCanvas = $('#areaChart').get(0).getContext('2d')
+
+    $('.chart').hide();
+    $('#refresh').hide();
+    
+    var curr_month = new Date();
+
+    var months    = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+    var now       = new Date();
+    var thisMonth = months[now.getMonth()];
+    $("#curr_month").html(thisMonth+', '+now.getFullYear())
+    // console.log(data_socket_transporter)
+ 
+    // var areaChartData={};
+
+    // console.log(barData)
+    
+    // This will get the first returned node in the jQuery collection.
+    // var areaChart       = new Chart(areaChartCanvas, { 
+    //   type: 'line',
+    //   data: areaChartData, 
+    //   options: areaChartOptions
+    // })
+
+    //-------------
+    //- LINE CHART -
+    //--------------
+    // var lineChartCanvas = $('#lineChart').get(0).getContext('2d')
+    // var lineChartOptions = jQuery.extend(true, {}, areaChartOptions)
+    // var lineChartData = jQuery.extend(true, {}, areaChartData)
+    // lineChartData.datasets[0].fill = false;
+    // lineChartData.datasets[1].fill = false;
+    // lineChartOptions.datasetFill = false
+
+    // var lineChart = new Chart(lineChartCanvas, { 
+    //   type: 'line',
+    //   data: lineChartData, 
+    //   options: lineChartOptions
+    // })
+
+    //-------------
+    //- DONUT CHART -
+    //-------------
+    // Get context with jQuery - using jQuery's .get() method.
+    // var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
+    var donutData        = {
+      labels: [
+          'Chrome', 
+          'IE',
+          'FireFox', 
+          'Safari', 
+          'Opera', 
+          'Navigator', 
+      ],
+      datasets: [
+        {
+          data: [700,500,400,600,300,100],
+          backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
+        }
+      ]
+    }
+    var donutOptions     = {
+      maintainAspectRatio : false,
+      responsive : true,
+    }
+    //Create pie or douhnut chart
+    // You can switch between pie and douhnut using the method below.
+    // var donutChart = new Chart(donutChartCanvas, {
+    //   type: 'doughnut',
+    //   data: donutData,
+    //   options: donutOptions      
+    // })
+
+    //-------------
+    //- PIE CHART -
+    //-------------
+    // Get context with jQuery - using jQuery's .get() method.
+    // var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
+    var pieData        = donutData;
+    var pieOptions     = {
+      maintainAspectRatio : false,
+      responsive : true,
+    }
+    //Create pie or douhnut chart
+    // You can switch between pie and douhnut using the method below.
+    // var pieChart = new Chart(pieChartCanvas, {
+    //   type: 'pie',
+    //   data: pieData,
+    //   options: pieOptions      
+    // })
+
+    //---------------------
+    //- STACKED BAR CHART -
+    //---------------------
+    // var stackedBarChartCanvas = $('#stackedBarChart').get(0).getContext('2d')
+    // var stackedBarChartData = jQuery.extend(true, {}, barChartData)
+
+    // var stackedBarChartOptions = {
+    //   responsive              : true,
+    //   maintainAspectRatio     : false,
+    //   scales: {
+    //     xAxes: [{
+    //       stacked: true,
+    //     }],
+    //     yAxes: [{
+    //       stacked: true
+    //     }]
+    //   }
+    // }
+
+    // var stackedBarChart = new Chart(stackedBarChartCanvas, {
+    //   type: 'bar', 
+    //   data: stackedBarChartData,
+    //   options: stackedBarChartOptions
+    // })
+
+    
+  })
+
+
+  // includeHTML()
+
+</script>
+
 </body>
 </html>
