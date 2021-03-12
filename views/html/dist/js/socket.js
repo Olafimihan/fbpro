@@ -8,6 +8,10 @@ data_socket_transporter.on('errmsg', (errmsg) => {
     console.log(errmsg);
 });
 
+function getSubscriptionFee(){
+    alert('Dele')
+}
+
 // document.ready(function(){
 //     alert('Dele')
 // })

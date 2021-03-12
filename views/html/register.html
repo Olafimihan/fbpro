@@ -85,8 +85,8 @@
           </div>
         </div>
         
-        <div class="input-group mb-3">
-          <select id="sub_type" name="sub_type" class="form-control" placeholder="Subscription Type">
+        <div class="input-group mb-4">
+          <select id="sub_type" name="sub_type" class="form-control" placeholder="Subscription Type" onchange="getSubscriptionFee(this.value)">
             <option value="0">Please, select a subscription type.....</option>
             <option value="annual">Yearly Subscription</option>
             <option value="biannual">Bi-Annual Subscription</option>

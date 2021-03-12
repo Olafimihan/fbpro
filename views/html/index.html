@@ -113,8 +113,13 @@
     }
     socket.emit('adminlogin', loginObject);
     socket.on('adminlogin', (loginObject)=>{
-      console.log('SUCCESS')
-      window.location='index3.html';
+      console.log(loginObject)
+      if(loginObject){
+        window.location='index3.html';
+      }else{
+        window.location='404.html';
+      }
+      // 
     });
 
   }
