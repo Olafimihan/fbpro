@@ -177,7 +177,7 @@
       
       data_socket_transporter.emit('newfarmregistration', registrationObject);
       data_socket_transporter.on('registration success', (msg)=>{
-        alert(msg.msg)
+        console.log(msg.msg)
       })
 
     })
