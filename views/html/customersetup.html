@@ -285,7 +285,7 @@
 
 
 <script>
-
+let api_key = localStorage.getItem('SSH_KEY')
 
 includeHTML()
 
@@ -320,8 +320,8 @@ function includeHTML() {
       }
   }
 }
-
-data_socket_transporter.emit('get customers list');
+console.log("CUST: "+ api_key)
+data_socket_transporter.emit('get customers list', {api_key: api_key});
 
 data_socket_transporter.on('get customers list', (data)=>{
  
