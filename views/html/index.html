@@ -117,7 +117,8 @@
       data_socket_transporter.emit('adminlogin', loginObject);
       data_socket_transporter.on('adminlogin', (loginObject)=>{
         console.log(loginObject)
-        if(loginObject){
+        if(loginObject.result){
+          localStorage.setItem('SSH_KEY', loginObject.api_key);
           window.location='index3.html';
         }else{
           window.location='404.html';
