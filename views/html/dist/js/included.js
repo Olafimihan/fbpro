@@ -1,3 +1,10 @@
+let api_key="";
+$(function(){
+    api_key=localStorage.getItem('SSH_KEY') 
+    console.log(api_key)
+
+})
+
 includeHTML()
 
 function includeHTML() {
@@ -28,7 +35,7 @@ function includeHTML() {
   }
 }
 
-data_socket_transporter.emit('get gl drop down');
+data_socket_transporter.emit('get gl drop down', {api_key: api_key});
 
 data_socket_transporter.on('get gl drop down', (data)=>{
 
