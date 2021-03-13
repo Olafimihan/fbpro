@@ -154,7 +154,7 @@
    
 
 
-  $(document).ready(function(){
+  $(document).ready(function() {
     // console.log(data_socket_transporter);
 
     // alert('Dele')
@@ -162,7 +162,7 @@
       var pass = $('#password').val()
       var pass2 = $('#password2').val()
       
-      if(pass !==pass2){
+      if(pass !==pass2) {
         alert('Password Not equal, please re-enter password to continue...');
         return;
       }
@@ -182,13 +182,17 @@
         console.log(msg);
         console.log(msg.msg);
         console.log(msg.api_key);
-        
+
         localStorage.setItem('SSH_KEY', msg.api_key);
+
+        window.location='login.html';
+
       });
 
     });
 
-  })
+  });
+
 </script>
 </body>
 </html>

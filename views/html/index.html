@@ -101,18 +101,21 @@
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
 
-<script>
-  var socket = io.connect("http://139.162.192.74:2021")
+<script src="dist/js/socket.js"></script>
 
-  console.log(socket);
+
+<script>
+  
+  console.log(data_socket_transporter);
 
   function login(){
     var loginObject={
       user: $('#username').val(),
       pass: $('#password').val()
     }
-    socket.emit('adminlogin', loginObject);
-    socket.on('adminlogin', (loginObject)=>{
+    
+    data_socket_transporter.emit('adminlogin', loginObject);
+    data_socket_transporter.on('adminlogin', (loginObject)=>{
       console.log(loginObject)
       if(loginObject){
         window.location='index3.html';
