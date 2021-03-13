@@ -161,6 +161,7 @@
     $('#join').click(function() {
       var pass = $('#password').val()
       var pass2 = $('#password2').val()
+      
       if(pass !==pass2){
         alert('Password Not equal, please re-enter password to continue...');
         return;
@@ -173,14 +174,19 @@
         phone: $('#phone').val(),
         subtype  : $('#sub_type').val(),
         passkey: $('#password').val()
-      }
+      };
       
       data_socket_transporter.emit('newfarmregistration', registrationObject);
-      data_socket_transporter.on('registration success', (msg)=>{
-        console.log(msg.msg)
-      })
+      
+      data_socket_transporter.on('registration success', (msg) => {
+        console.log(msg);
+        console.log(msg.msg);
+        console.log(msg.api_key);
+        
+        localStorage.setItem('SSH_KEY', msg.api_key);
+      });
 
-    })
+    });
 
   })
 </script>
