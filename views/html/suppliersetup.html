@@ -8,11 +8,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
@@ -185,7 +185,7 @@
                     <input type="text" id="suppname" class="form-control" placeholder="Enter Supplier name">
                   </div>
                   
-                  <div class="col-md-12" id="refresh">
+                  <!-- <div class="col-md-12" id="refresh">
                     <div class="card card-primary">
                       <div class="card-header">
                         <h3 class="card-title">Spooling data</h3>
@@ -197,12 +197,7 @@
                         Wait while we prepare your report...
                       </div>
                     </div>
-
-                    <!-- <div class="d-none" id="card-refresh-content">
-                        The body of the card after card refresh
-                    </div> -->
-
-                  </div>
+                  </div> -->
 
                   <div class="form-group">
                     <label for="inputDescription">Address</label>
@@ -292,24 +287,21 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="../../plugins/jquery/jquery.min.js"></script>
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js" integrity="sha256-bQmrZe4yPnQrLTY+1gYylfNMBuGfnT/HKsCGX+9Xuqo=" crossorigin="anonymous"></script> -->
-<script src="socket-server.js"></script>
+<!-- <script src="plugins/jquery/jquery.min.js"></script> -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js" integrity="sha256-bQmrZe4yPnQrLTY+1gYylfNMBuGfnT/HKsCGX+9Xuqo=" crossorigin="anonymous"></script>
+<!-- <script src="socket-server.js"></script> -->
 <!-- Bootstrap 4 -->
-<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
-<script src="../../dist/js/adminlte.min.js"></script>
+<script src="dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="../../dist/js/demo.js"></script>
+<script src="dist/js/demo.js"></script>
 <script src="dist/js/socket.js"></script>
 
 
 <script>
-
-$(function(){
-  $('#refresh').hide();
-})
-
+ 
 
 includeHTML()
 
@@ -341,16 +333,13 @@ function includeHTML() {
   }
 }
 
-data_socket_transporter.emit('get suppliers list');
+data_socket_transporter.emit('get suppliers list', {api_key: api_key});
 
-data_socket_transporter.on('get suppliers list', (data)=>{
- 
+data_socket_transporter.on('get suppliers list', (data) => {
     // console.log(data)
-    $("#supplierlist").html(data);
+    $("#supplierlist").html(data); 
 
- 
-
-})
+});
 
 function editter(id){
     // alert(id)
@@ -383,14 +372,19 @@ function saveData(){
     let email = $("#email").val();
 
     let bday = $("#bday").val(); 
+    let api_key = localStorage.getItem('SSH_KEY') ;
+// console.log(api_key)
+
 
     var outData={
-        custname: name, address: address, phone: telephone, email: email, bday: bday 
+        suppname: name, address: address, phone: telephone, email: email, api_key: api_key
     }
+
+    // console.log(data_socket_transporter)
 
     data_socket_transporter.emit('savesuppliers', outData)
     data_socket_transporter.on('savesuppliers', (responseObj)=>{
-        alert(responseObj.insertId)
+        console.log(responseObj.insertId)
     })
 
 

@@ -8,11 +8,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
@@ -250,18 +250,17 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="../../plugins/jquery/jquery.min.js"></script>
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js" integrity="sha256-bQmrZe4yPnQrLTY+1gYylfNMBuGfnT/HKsCGX+9Xuqo=" crossorigin="anonymous"></script> -->
-<script src="socket-server.js"></script>
+<!-- <script src="plugins/jquery/jquery.min.js"></script> -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js" integrity="sha256-bQmrZe4yPnQrLTY+1gYylfNMBuGfnT/HKsCGX+9Xuqo=" crossorigin="anonymous"></script>
 <!-- Bootstrap 4 -->
-<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
-<script src="../../dist/js/adminlte.min.js"></script>
+<script src="dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="../../dist/js/demo.js"></script>
-<!-- <script src="../html/dist/js/socket.js"></script> -->
-<!-- <script src="../../dist/js/socket.js"></script> -->
-<script src="../../dist/js/socket.js"></script>
+<script src="dist/js/demo.js"></script>
+<script src="dist/js/socket.js"></script>
 
 
 <script>
@@ -301,72 +300,38 @@ function includeHTML() {
   }
 }
 
-data_socket_transporter.emit('get equilibrium age');
+data_socket_transporter.emit('get equilibrium age', {api_key: api_key});
 
 data_socket_transporter.on('get equilibrium age', (data)=>{
- 
+  console.log(data)
+
+    var equilibrium = data[0].equilibrium_point;
+                   console.log(equilibrium)     
     // alert(data)
-    $("#equilibrium").val(data);
+    $("#equilibrium").val(equilibrium);
 
  
 
 })
 
-function editter(id){
-    // alert(id)
-    $("#upd").attr('disabled', false)
-    $("#sub").attr('disabled', true)
-    
-    data_socket_transporter.emit('editsuppliers', id)
-    data_socket_transporter.on('editsuppliers', (resultSet)=>{
-        console.log(resultSet)
-
-        $("#supp_id").val(resultSet[0].supplier_id);
-        $("#suppname").val(resultSet[0].supplier_company_name);
-        $("#address").val(resultSet[0].address);
-        $("#telephone").val(resultSet[0].telephone_no);
-        
-        $("#email").val(resultSet[0].e_mail);
-        
-        $("#bday").val(resultSet[0].birthdate);
  
-
-
-    })
-}
 
 function saveData(){
     let equilibrium = $("#equilibrium").val(); 
 
     var outData={
-        equilibrium: equilibrium 
+        equilibrium: equilibrium,
+        api_key: api_key
+
     }
 
     data_socket_transporter.emit('change equilibrium', outData)
     data_socket_transporter.on('change equilibrium', (responseObj)=>{
-        alert(responseObj)
+        console.log(responseObj)
     })
 
-
 }
-function updateData(){
-    let custid = $("#supp_id").val();
-    let name = $("#suppname").val();
-    let address = $("#address").val();
-    
-    let telephone = $("#telephone").val();
-    let email = $("#email").val();
 
-    // let bday = $("#bday").val(); 
-
-    var outData={
-        supp_id: custid, suppname: name, address: address, phone: telephone, email: email 
-    }
- 
-    data_socket_transporter.emit('updatesuppliers', outData)
-
-
-}
 
 data_socket_transporter.on('errmsg', (err)=>{
     alert(err.sqlMessage)

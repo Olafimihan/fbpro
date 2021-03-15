@@ -8,14 +8,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- DataTables -->
-  <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-  <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
@@ -131,7 +131,7 @@
                         <div class="col-md-6">
                             <!-- <a href="#" class="btn btn-secondary">Cancel</a> -->
                             
-                            <input type="button" value="Close" onclick="window.location='index.html'" class="btn btn-success float-right">
+                            <input type="button" value="Close" onclick="window.location='dashboard.html'" class="btn btn-success float-right">
                             <input type="button" id='saver' value="POST" onclick="saveData()" class="btn btn-primary float-right">
                         </div>
                     </div>
@@ -184,24 +184,24 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="../../plugins/jquery/jquery.min.js"></script>
+<script src="plugins/jquery/jquery.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js" integrity="sha256-bQmrZe4yPnQrLTY+1gYylfNMBuGfnT/HKsCGX+9Xuqo=" crossorigin="anonymous"></script>
 
-<script src="socket-server.js"></script>
+<!-- <script src="socket-server.js"></script> -->
 <!-- Bootstrap 4 -->
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- DataTables -->
-<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-<script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 <!-- AdminLTE App -->
-<script src="../../dist/js/adminlte.min.js"></script>
+<script src="dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="../../dist/js/demo.js"></script>
+<script src="dist/js/demo.js"></script>
 
-<script src="../../dist/js/socket.js"></script>
+<script src="dist/js/socket.js"></script>
 
 <!-- page script -->
 <script>
@@ -236,7 +236,7 @@
         }
     }
 
-    data_socket_transporter.emit('get filtered gl drop down');
+    data_socket_transporter.emit('get filtered gl drop down', {api_key: api_key});
 
     data_socket_transporter.on('get filtered gl drop down', (data) => {
 
@@ -278,11 +278,12 @@
           ttD      = "Credit",
           user_id  = user 
 
+
       $.ajax({
-        url: "http://139.162.229.38:2000/supp_receipt",
+        url: "http://139.162.192.74:2021/supp_receipt",
         type: "get",
         cache: false,
-        data: "cust_acct="+supp_acct+"&bank="+bank_id+"&tdate="+tdate+"&amt="+amount+"&narra="+narra+"&ttC="+ttC+"&ttD="+ttD+"&user="+user_id,
+        data: "cust_acct="+supp_acct+"&bank="+bank_id+"&tdate="+tdate+"&amt="+amount+"&narra="+narra+"&ttC="+ttC+"&ttD="+ttD+"&user="+user_id+"&api_key="+api_key,
         // data: {insertObject: inObj},
         dataType: "json",
         success: (data) => {

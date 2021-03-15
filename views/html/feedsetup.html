@@ -8,11 +8,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
@@ -181,21 +181,20 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="../../plugins/jquery/jquery.min.js"></script>
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js" integrity="sha256-bQmrZe4yPnQrLTY+1gYylfNMBuGfnT/HKsCGX+9Xuqo=" crossorigin="anonymous"></script> -->
-<script src="socket-server.js"></script>
+<script src="plugins/jquery/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js" integrity="sha256-bQmrZe4yPnQrLTY+1gYylfNMBuGfnT/HKsCGX+9Xuqo=" crossorigin="anonymous"></script>
+<!-- <script src="socket-server.js"></script> -->
 <!-- Bootstrap 4 -->
-<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
-<script src="../../dist/js/adminlte.min.js"></script>
+<script src="dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="../../dist/js/demo.js"></script>
+<script src="dist/js/demo.js"></script>
 <script src="dist/js/socket.js"></script>
 
 
 <script>
-
-
+ 
 
 includeHTML()
 
@@ -227,7 +226,7 @@ function includeHTML() {
   }
 }
 
-data_socket_transporter.emit('get gl drop down');
+data_socket_transporter.emit('get gl drop down', {api_key: api_key});
 
 data_socket_transporter.on('get gl drop down', (data)=>{
 
@@ -238,7 +237,7 @@ data_socket_transporter.on('get gl drop down', (data)=>{
 
 })
 
-data_socket_transporter.emit('get feeds list');
+data_socket_transporter.emit('get feeds list', {api_key: api_key});
 
 data_socket_transporter.on('get feeds list', (data)=>{
  
@@ -275,6 +274,10 @@ function editter(id){
     })
 }
 
+function deleter(id){
+  alert('My ID: '+id)
+}
+
 function saveData(){
     let name = $("#suppname").val();
     let address = $("#address").val();
@@ -283,9 +286,10 @@ function saveData(){
     let email = $("#email").val();
 
     let bday = $("#bday").val(); 
+    let api_key=localStorage.getItem('SSH_KEY')
 
     var outData={
-        custname: name, address: address, phone: telephone, email: email, bday: bday 
+        custname: name, address: address, phone: telephone, email: email, bday: bday, api_key: api_key
     }
 
     data_socket_transporter.emit('savesuppliers', outData)

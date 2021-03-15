@@ -269,8 +269,8 @@
  
 <script>
   window.onload=()=>{
-    let api_key="";
-    api_key=localStorage.getItem('SSH_KEY') 
+    // let api_key="";
+    // api_key=localStorage.getItem('SSH_KEY') 
     console.log('LS: '+api_key)
     // $(function(){
     // })
@@ -323,6 +323,7 @@
 
         $("#penslist").html(data.pens);
 
+        console.log(data.pens)
     
 
     })

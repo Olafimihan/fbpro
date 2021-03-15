@@ -8,14 +8,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- DataTables -->
-  <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-  <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
@@ -196,7 +196,7 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-              <table id="example1" class="table table-bordered table-striped">
+              <table id="example1" class="table table-bordered table-striped"  style="font-size: 12px;">
                 <thead>
                 <tr>
                   <th>S/N</th>
@@ -254,7 +254,7 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="../../plugins/jquery/jquery.min.js"></script>
+<script src="plugins/jquery/jquery.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js" integrity="sha256-bQmrZe4yPnQrLTY+1gYylfNMBuGfnT/HKsCGX+9Xuqo=" crossorigin="anonymous"></script>
 
@@ -262,16 +262,16 @@
 <!-- Bootstrap 4 -->
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- DataTables -->
-<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-<script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 <!-- AdminLTE App -->
-<script src="../../dist/js/adminlte.min.js"></script>
+<script src="dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="../../dist/js/demo.js"></script>
+<script src="dist/js/demo.js"></script>
 
-<script src="../../dist/js/socket.js"></script>
+<script src="dist/js/socket.js"></script>
 
 <!-- page script -->
 <script>
@@ -337,11 +337,24 @@ function includeHTML() {
 
     var dateObj={
       bdate: bdate,
-      edate: edate
+      edate: edate,
+      api_key: api_key
     }
+
     data_socket_transporter.emit('sales data', dateObj )
     data_socket_transporter.on('sales data', (dataObj)=>{
-      $("#sales_resp").html(dataObj);
+
+      var str = "";
+      var j=0, tot_amt=0
+      dataObj.forEach((rec)=>{
+          j++;
+          tot_amt+=rec.amount
+          str += "<tr><td>" +j+ "</td><td>"+ dateFormat(rec.trans_date, 'yyyy-mm-dd') +"</td><td>"+rec.cust_company_name+"</td><td>"+rec.goods_description+"</td><td>"+rec.invoice_no+"</td><td>"+rec.quantity+"</td><td  style=''>"+ rec.price +"</td><td style='text-align: right'>"+ rec.amount +"</td></tr>"
+      })
+
+      str += "<tr><td colspan='7' >TOTAL</td><td style='text-align: right; font-weight: bolder'>"+ tot_amt +"</td></tr>"
+
+      $("#sales_resp").html(str);
       
     }) 
     

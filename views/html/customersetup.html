@@ -270,11 +270,11 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<!-- <script src="plugins/jquery/jquery.min.js"></script> -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js" integrity="sha256-bQmrZe4yPnQrLTY+1gYylfNMBuGfnT/HKsCGX+9Xuqo=" crossorigin="anonymous"></script>
-<script src="socket-server.js"></script>
+<!-- <script src="socket-server.js"></script> -->
 <!-- Bootstrap 4 -->
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
@@ -285,7 +285,7 @@
 
 
 <script>
-let api_key = localStorage.getItem('SSH_KEY')
+// let api_key = localStorage.getItem('SSH_KEY')
 
 includeHTML()
 
@@ -320,7 +320,7 @@ function includeHTML() {
       }
   }
 }
-console.log("CUST: "+ api_key)
+// console.log("CUST: "+ api_key)
 data_socket_transporter.emit('get customers list', {api_key: api_key});
 
 data_socket_transporter.on('get customers list', (data)=>{
@@ -360,9 +360,10 @@ function saveData(){
     let email = $("#email").val();
 
     let bday = $("#bday").val(); 
+    let api_key= localStorage.getItem('SSH_KEY');
 
     var outData={
-        custname: name, address: address, phone: telephone, email: email, bday: bday 
+        custname: name, address: address, phone: telephone, email: email, bday: bday, api_key: api_key 
     }
 
     data_socket_transporter.emit('savecustomer', outData)

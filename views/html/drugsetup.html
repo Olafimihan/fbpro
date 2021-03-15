@@ -168,8 +168,8 @@
 
 <!-- jQuery -->
 <script src="plugins/jquery/jquery.min.js"></script>
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js" integrity="sha256-bQmrZe4yPnQrLTY+1gYylfNMBuGfnT/HKsCGX+9Xuqo=" crossorigin="anonymous"></script> -->
-<script src="socket-server.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js" integrity="sha256-bQmrZe4yPnQrLTY+1gYylfNMBuGfnT/HKsCGX+9Xuqo=" crossorigin="anonymous"></script>
+<!-- <script src="socket-server.js"></script> -->
 <!-- Bootstrap 4 -->
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 
@@ -187,8 +187,9 @@
 
 
 <script>
-
+  
   $(function(){
+    
     $("#example1").DataTable({
       "responsive": true,
       "autoWidth": false,
@@ -239,7 +240,7 @@ function includeHTML() {
 
  
 
-data_socket_transporter.emit('get drugs list');
+data_socket_transporter.emit('get drugs list', {api_key: api_key});
 
 data_socket_transporter.on('get drugs list', (data)=>{
  
@@ -280,6 +281,7 @@ function saveData(){
     let name = $("#drugname").val();
 
     let prc = $("#price").val(); 
+    let api_key = localStorage.getItem('SSH_KEY');
 
     var outData={
       drugname: name, price: prc 

@@ -8,14 +8,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- DataTables -->
-  <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-  <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
@@ -60,7 +60,7 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="../../dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+              <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Brad Diesel
@@ -76,7 +76,7 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="../../dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   John Pierce
@@ -92,7 +92,7 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="../../dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Nora Silvester
@@ -192,14 +192,14 @@
 
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title" style="text-align: center; font-size: 20px; font-weight: bolder;">Debtors Report as at: </h3>
+              <h3 class="card-title" style="text-align: center; font-size: 16px; font-weight: bolder;">Debtors Report as at: </h3>
                
             </div>
             <!-- /.card-header -->
-            <div class="card-body">
+            <div class="card-body" style="font-size: 14px;">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
-                <tr>
+                <tr style="font-weight: bolder;">
                     <th>S/N</th>
                     <th>Customer Name</th>
                     <th> Debit Balance</th> 
@@ -212,7 +212,7 @@
                  
                 </tbody>
                 <tfoot>
-                <tr>
+                <tr style="font-weight: bolder;">
                     <th>S/N</th>
                     <th>Customer Name</th>
                     <th> Debit Balance</th> 
@@ -250,23 +250,22 @@
 
 <!-- jQuery -->
 <script src="../../plugins/jquery/jquery.min.js"></script>
-
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js" integrity="sha256-bQmrZe4yPnQrLTY+1gYylfNMBuGfnT/HKsCGX+9Xuqo=" crossorigin="anonymous"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js" integrity="sha256-bQmrZe4yPnQrLTY+1gYylfNMBuGfnT/HKsCGX+9Xuqo=" crossorigin="anonymous"></script>
 <!-- Bootstrap 4 -->
 
-<script src="socket-server.js"></script>
+<!-- <script src="socket-server.js"></script> -->
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- DataTables -->
-<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-<script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 <!-- AdminLTE App -->
-<script src="../../dist/js/adminlte.min.js"></script>
+<script src="dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="../../dist/js/demo.js"></script>
+<script src="dist/js/demo.js"></script>
 
-<script src="../../dist/js/socket.js"></script>
+<script src="dist/js/socket.js"></script>
 
 <!-- page script -->
 <script>
@@ -302,10 +301,38 @@ function includeHTML() {
   }
 
   $(function () {
-    data_socket_transporter.emit('debtorslist_rpt')
+    data_socket_transporter.emit('debtorslist_rpt', {api_key: api_key})
     data_socket_transporter.on('debtorslist_rpt', (resultSet)=>{
         console.log(resultSet)
-        $("#stock_resp").html(resultSet);
+
+        var str="<table class='table table-bordered' >"
+
+        var j = 0;
+        var tot_amt=0, cr_bal=0, dr_bal=0;
+        var cr_tot=0, dr_tot=0;
+
+        resultSet.forEach((recs)=>{
+            j++;
+            if(recs.current_balance < 0 ){
+                // cr_bal = "(" + recs.current_balance + ")" 
+            dr_bal =  recs.current_balance * -1;
+            cr_bal=0; 
+            dr_tot = dr_tot + (recs.current_balance * -1); 
+            }else if(recs.current_balance >= 0){
+                cr_bal = recs.current_balance;
+                dr_bal=0;
+                cr_tot = cr_tot + recs.current_balance; 
+            
+            }
+            tot_amt += Number(recs.current_balance);
+            str += "<tr><td>"+ j +"</td><td>" + recs.cust_company_name + "</td><td style='text-align: right; font-weight: normal'>" + dr_bal + "</td><td style='text-align: right; font-weight: normal'>" + cr_bal + "</td></tr>"
+        })
+        str += "<tr><td colspan='2' >TOTAL</td><td style='text-align: right; font-weight: bolder'>"+ dr_tot+"</td><td style='text-align: right; font-weight: bolder'>"+ cr_tot+"</td></tr>"
+
+        str += "</table>"; 
+
+
+        $("#stock_resp").html(str);
         var dt = new Date();
           var mth = dt.getMonth()+1;
 

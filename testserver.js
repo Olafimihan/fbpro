@@ -17,9 +17,7 @@ let path = require('path');
 let nodemailer = require('nodemailer');
 
  
-var numeral = require('numeral');
-
-// myLogModule.info('Node.js started');
+let numeral = require('numeral');
 let urlencodedParser = bodyParser.urlencoded({extended: false});
 let http = require('http');
 let ejs = require('ejs');
@@ -54,36 +52,7 @@ app.set('view engine', 'ejs');
 app.set('views', __dirname);
 app.use(express.static(htmlPath));
 app.use(cors());
-
-app.set('socketio', io);
-app.use(function(req, res, next){
-    res.header('Access-Control-Allow-Origin', "*");
-    // res.header('Access-Control-Allow-Origin', "75.127.75.161:4000");
-    res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE');
-    res.header('Access-Control-Allow-Headers', 'Content-Type');
-    next();
-});
-
-// cron.schedule('00 12 * * *', () => {
-//     // Use moment.js or any other way to dynamically generate file name
-//       const fileName = 'dbbackup.sql';//`${process.env.DB_NAME}_${moment().format('YYYY_MM_DD')}.sql`
-//       const wstream = fs.createWriteStream(`/Path/You/Want/To/Save/${fileName}`)
-//       console.log('---------------------')
-//       console.log('Running Database Backup Cron Job')
-//       const mysqldump = spawn('mysqldump', [ '-u', process.env.DB_USER, `-p${process.env.DB_PASSWORD}`, process.env.DB_NAME ])
-    
-//       mysqldump
-//         .stdout
-//         .pipe(wstream)
-//         .on('finish', () => {
-//           console.log('DB Backup Completed!')
-//         })
-//         .on('error', (err) => {
-//           console.log(err)
-//         })
-// })
-
-
+ 
 let storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, __dirname + '/uploads/');
