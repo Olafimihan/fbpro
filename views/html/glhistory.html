@@ -8,14 +8,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- DataTables -->
-  <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-  <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
@@ -78,7 +78,7 @@
       <div class="row" style="margin-top: -30px; background-color: blanchedalmond;">
         <div class="col-md-6">
             <label for="item_id" class="col-md-4">Select GL</label>
-            <select class="dropdown" name="item_id" id="item_id" class="col-md-8 form-control" >
+            <select class="dropdowns" name="item_id" id="item_id" class="col-md-8 form-control" >
 
             </select>
 
@@ -109,7 +109,7 @@
             <div class="card-body">
               <h6 style="text-align: center; font-size: 14px; font-weight: bold;"></h6>
               <h5 style="text-align: center; font-size: 13px;"></h5>
-              <table id="example2" class="table table-bordered table-striped ">
+              <table id="example2" style="font-size: 12px;" class="table table-bordered table-striped ">
                 <thead>
                 <tr style="font-size: 13px;">
                   <th>S/N</th>
@@ -150,7 +150,7 @@
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <strong>Copyright &copy; 2020 <a href="">Farmbook </a>.</strong>
+    <strong>Copyright &copy; 2020 <a href="">Fambook.io </a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
       <b>Version</b> 1.0
@@ -173,16 +173,16 @@
 <!-- Bootstrap 4 -->
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- DataTables -->
-<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-<script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 <!-- AdminLTE App -->
-<script src="../../dist/js/adminlte.min.js"></script>
+<script src="dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="../../dist/js/demo.js"></script>
+<script src="dist/js/demo.js"></script>
 <!-- <script src="../html/dist/js/socket.js"></script> -->
-<script src="../../dist/js/socket.js"></script>
+<script src="dist/js/socket.js"></script>
 
 <!-- page script -->
 <script>
@@ -217,11 +217,13 @@ function includeHTML() {
     }
   }
 
-  data_socket_transporter.emit('get gl drop down');
+  data_socket_transporter.emit('get gl drop down', {api_key: api_key});
 
   data_socket_transporter.on('get gl drop down', (data)=>{ 
       // console.log(data)
-      $("#item_id").html(data.val);
+
+
+      $("#item_id").html(data.result);
       // $("#cr_acct").html(data.val); 
   });
 
@@ -245,7 +247,7 @@ function includeHTML() {
 
   function changeDDL(val){
     //   var radioValue = $("input[name='customRadio']:checked").val();
-      data_socket_transporter.emit('get item drop down', val);
+      data_socket_transporter.emit('get item drop down', {feed: val, api_key: api_key});
 
       data_socket_transporter.on('get item drop down', (data)=>{
           console.log(val)
@@ -269,12 +271,16 @@ function includeHTML() {
     var dateObj={
       itemid: itemid,
       bdate: bdate,
-      edate: edate
+      edate: edate,
+      api_key: api_key
     };
 
     data_socket_transporter.emit('gl_rpt', dateObj )
     
-    data_socket_transporter.on('gl_rpt', (dataObj)=>{ 
+    data_socket_transporter.on('gl_rpt', (dataObj)=>{
+      
+      
+      
       $("#usage_resp").html(dataObj.str);
 
       // $("h7").html("")
