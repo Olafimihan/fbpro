@@ -505,168 +505,217 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-        
+        <!-- Info boxes -->
+        <div class="row">
+          <!-- /.col -->
+          <div class="col-12 col-sm-6 col-md-4">
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Feed Consumed QTY </span>
+                <span class="info-box-number" id="feedqty"></span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+
+          <div class="col-12 col-sm-6 col-md-4">
+            <div class="info-box">
+              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cogs"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Feed Consumed Cost</span>
+                <span class="info-box-number">
+                  
+                  <small id="feedcost"></small>
+                </span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+          <div class="col-12 col-sm-6 col-md-4">
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-success elevation-1"><i class="fas fa-chalkboard"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Total Drug Cost</span>
+                <span class="info-box-number" id="drugcost"></span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+
+          <!-- fix for small devices only -->
+          <div class="clearfix hidden-md-up"></div>
+
+          <div class="col-12 col-sm-6 col-md-4">
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-user"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Other Costs</span>
+                <span class="info-box-number" id="othercost"></span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          
+          <div class="col-12 col-sm-6 col-md-4">
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-user"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Total Mortality</span>
+                <span class="info-box-number" id="mortaqty"></span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          
+          <div class="col-12 col-sm-6 col-md-4">
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-user"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Total Mortality Cost</span>
+                <span class="info-box-number" id="mortacost"></span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          
+          <div class="col-12 col-sm-6 col-md-4">
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-user"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Total Production</span>
+                <span class="info-box-number" id="productiontot"></span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          
+          <div class="col-12 col-sm-6 col-md-4">
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-user"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Total Sales</span>
+                <span class="info-box-number" id="totalsales"></span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          
+          <div class="col-12 col-sm-6 col-md-4">
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-user"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Total Cost Of Sales</span>
+                <span class="info-box-number" id="totalcfs"></span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          
+        </div>
+        <!-- /.row -->
+
         <div class="row">
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h5 class="card-title">Monthly Sales Report</h5>
+                <h5 class="card-title">Cost Element Analysis.</h5>
 
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                    <i class="fas fa-minus"></i>
-                  </button>
-                   
-                  <button type="button" class="btn btn-tool" data-card-widget="remove">
-                    <i class="fas fa-times"></i>
-                  </button>
-                </div>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
                 <div class="row">
+                  <div class="col-md-6">
+                    <p class="text-center">
+                      <strong id="tran_heading"></strong>
+                    </p>
+
+                    <div class="chart">
+                      <!-- Sales Data Layout Canvas -->
+                      <canvas id="trx_data" height="180" style="height: 180px;"></canvas>
+                    </div>
+                    <!-- /.chart-responsive -->
+                  </div>
+                  
+                  <div class="col-md-6">
+                    <p class="text-center">
+                      <strong id="tran_heading2"></strong>
+                    </p>
+
+                    <div class="chart">
+                      <!-- Sales Pie Chart Canvas  -->
+                      <canvas id="trx_piechart" height="180" style="height: 180px;"></canvas>
+                    </div>
+                    <!-- /.chart-responsive -->
+                  </div>
+                  
                   <div class="col-md-12">
                     <p class="text-center">
-                      <strong style="font-size: 22px; text-align: center;" id="curr_month"></strong>
+                      <strong id="tran_heading3"></strong>
                     </p>
-                    <div class="card card-success">
-                      <div class="card-header">
-                        <h3 class="card-title">Sales Chart</h3>
-                        <!-- <h4>Month to Date Data</h4> -->
-        
-                        <div class="card-tools">
-                          <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-                          </button>
-                          <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
-                        </div>
+
+                    <div class="chart">
+                      <!-- Sales Chart Canvas -->
+                      <canvas id="salesChart" height="180" style="height: 180px;"></canvas>
+                    </div>
+                    <!-- /.chart-responsive -->
+                  </div>
+
+                  <!-- PIE CHART -->
+                  <div class="card card-danger col-md-6">
+                    <div class="card-header">
+                      <h3 class="card-title">Pie Chart</h3>
+
+                      <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
                       </div>
-                      <div class="card-body">
-                        <button class="btn btn-primary" id="preview" onclick="preview()">Preview</button>
+                    </div>
+                    <div class="card-body">
+                      <canvas id="pieChart" style="min-height: 100px; height: 100px; max-height: 100px; max-width: 100%;"></canvas>
+                    </div>
+                    <!-- /.card-body -->
+                  </div>
+                  <!-- /.card -->
                   
-                        <div>
-                          
-                        </div>
-                        <div class="chart">
-                          <canvas id="barChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
-                        </div>
-
-                        
-                      </div> 
-
-                      <div class="card-footer">
-                        <!-- <div class="row">
-                          <div class="col-sm-6">
-                            <div class="description-block border-right">
-                              <span class="description-percentage text-success"> </span>
-                              <h5 class="description-header" id="fcr">0.00</h5>
-                              <span class="description-text">FCR</span>
-                            </div> 
-                          </div>
-                        </div> -->
-                        <div class="row">
-                          <div class="col-sm-3 col-6">
-                            <div class="description-block border-right">
-                              <span class="description-percentage text-success"> </span>
-                              <h5 class="description-header" id="revenue">N0.00</h5>
-                              <span class="description-text">TOTAL REVENUE</span>
-                            </div> 
-                          </div>
-                          <div class="col-sm-3 col-6">
-                            <div class="description-block border-right">
-                              <span class="description-percentage text-warning"></span>
-                              <h5 class="description-header" id="expense">N0.00</h5>
-                              <span class="description-text">TOTAL EXPENSE</span>
-                            </div>
-                          </div>
-        
-                          <div class="col-sm-3 col-6">
-                            <div class="description-block">
-                              <span class="description-percentage text-danger"></span>
-                              <h5 class="description-header" id="production">N0.00</h5>
-                              <span class="description-text">TOTAL PRODUCTION</span>
-                            </div>
-                          </div>
-                          <div class="col-sm-3 col-6">
-                            <div class="description-block border-right">
-                              <span class="description-percentage text-success"></span>
-                              <h5 class="description-header" id="mortality">N0.00</h5>
-                              <span class="description-text">TOTAL MORTALITTY</span>
-                            </div>
-                          </div>
-                          
-                        </div>
-                      </div>
-        
-                    </div>  <!--rnd card-->
-
-                    <div class="card card-success">
-                      <div class="card-header">
-                        <h3 class="card-title" style="text-align: center;">Daily FCR</h3>
-                        <!-- <h4>Month to Date Data</h4> -->
-        
-                        <div class="card-tools">
-                          <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-                          </button>
-                          <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
-                        </div>
-                      </div>
-                      <div class="card-body">
-                        <!-- <button class="btn btn-primary" id="preview" onclick="preview_FCR()">Preview</button> -->
-                        
-                        <div>
-                          <table style="font-size: 11px;" id="example1" class="table table-bordered table-striped">
-                            <thead>
-                            <tr style="font-size: 11px;">
-                              
-                              <th>Date</th>
-                              <th>Pen Name</th>
-                              
-                              <th>Production</th>
-                              <th>Feed Intake</th> 
-                              <th>Feed Date</th> 
-                              <th>FCR</th> 
-                            </tr>
-                            </thead>
-                            <tbody id="fcr_resp">
-                            
-                             
-                            </tbody>
-                            <tfoot>
-                            <tr style="font-size: 11px;">
-                              <th>Date</th>
-                              <th>Pen Name</th>
-                              <th>Production</th>
-                              <th>Feed Intake</th> 
-                              <th>Feed Date</th> 
-                              <th>FCR</th> 
-                            </tr>
-                            </tfoot>
-                          </table>
-                          
-                        </div>
-                        
-                        
-                        
-                      </div> 
-
-                      
-                    </div>  <!--rnd card--> 
-                   </div>
                 </div>
-              </div> 
-
-              
+                <!-- /.row -->
+              </div>
+              <!-- ./card-body -->
 
             </div>
+            <!-- /.card -->
           </div>
           <!-- /.col -->
         </div>
         <!-- /.row -->
- 
 
       </div><!--/. container-fluid -->
+
     </section>
-    <!-- /.content -->
+
   </div>
   <!-- /.content-wrapper -->
 
