@@ -285,116 +285,111 @@
 
 
 <script>
-// let api_key = localStorage.getItem('SSH_KEY')
+ 
+  includeHTML()
 
-includeHTML()
+  $(function(){
+    $("#includemenu").load("menulist.html"); 
+  });
 
-$(function(){
-  $("#includemenu").load("menulist.html"); 
-});
-
-function includeHTML() {
-  var z, i, elmnt, file, xhttp;
-  /* Loop through a collection of all HTML elements: */
-  z = document.getElementsByTagName("*");
-  for (i = 0; i < z.length; i++) {
-      elmnt = z[i];
-      /*search for elements with a certain atrribute:*/
-      file = elmnt.getAttribute("w3-include-html");
-      if (file) {
-      /* Make an HTTP request using the attribute value as the file name: */
-      xhttp = new XMLHttpRequest();
-      xhttp.onreadystatechange = function() {
-          if (this.readyState == 4) {
-          if (this.status == 200) {elmnt.innerHTML = this.responseText;}
-          if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
-          /* Remove the attribute, and call this function once more: */
-          elmnt.removeAttribute("w3-include-html");
-          includeHTML();
-          }
-      }
-      xhttp.open("GET", file, true);
-      xhttp.send();
-      /* Exit the function: */
-      return;
-      }
+  function includeHTML() {
+    var z, i, elmnt, file, xhttp;
+    /* Loop through a collection of all HTML elements: */
+    z = document.getElementsByTagName("*");
+    for (i = 0; i < z.length; i++) {
+        elmnt = z[i];
+        /*search for elements with a certain atrribute:*/
+        file = elmnt.getAttribute("w3-include-html");
+        if (file) {
+        /* Make an HTTP request using the attribute value as the file name: */
+        xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4) {
+            if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+            if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+            /* Remove the attribute, and call this function once more: */
+            elmnt.removeAttribute("w3-include-html");
+            includeHTML();
+            }
+        }
+        xhttp.open("GET", file, true);
+        xhttp.send();
+        /* Exit the function: */
+        return;
+        }
+    }
   }
-}
-// console.log("CUST: "+ api_key)
-data_socket_transporter.emit('get customers list', {api_key: api_key});
 
-data_socket_transporter.on('get customers list', (data)=>{
- 
-    // console.log(data)
-    $("#customerlist").html(data);
+  // console.log("CUST: "+ api_key)
+  data_socket_transporter.emit('get customers list', {api_key: api_key});
 
- 
+  data_socket_transporter.on('get customers list', (data) => {
+      // console.log(data)
+      $("#customerlist").html(data);
+  })
 
-})
+  function editter(id){
+      // alert(id)
+      data_socket_transporter.emit('editcustomer', id);
+      data_socket_transporter.on('editcustomer', (resultSet) => {
+          console.log(resultSet);
 
-function editter(id){
-    // alert(id)
-    data_socket_transporter.emit('editcustomer', id)
-    data_socket_transporter.on('editcustomer', (resultSet)=>{
-        console.log(resultSet)
+          $("#cust_id").val(resultSet[0].cust_id);
+          $("#custname").val(resultSet[0].cust_company_name);
+          $("#address").val(resultSet[0].address);
+          $("#telephone").val(resultSet[0].telephone_no);
+          
+          $("#email").val(resultSet[0].e_mail);
+          
+          $("#bday").val(resultSet[0].birthdate);
+          
+      })
+  }
 
-        $("#cust_id").val(resultSet[0].cust_id);
-        $("#custname").val(resultSet[0].cust_company_name);
-        $("#address").val(resultSet[0].address);
-        $("#telephone").val(resultSet[0].telephone_no);
-        
-        $("#email").val(resultSet[0].e_mail);
-        
-        $("#bday").val(resultSet[0].birthdate);
- 
+  function saveData(){
+      let name = $("#custname").val();
+      let address = $("#address").val();
+      
+      let telephone = $("#telephone").val();
+      let email = $("#email").val();
 
+      let bday = $("#bday").val(); 
+      let api_key= localStorage.getItem('SSH_KEY');
 
-    })
-}
+      var outData={
+          custname: name, address: address, phone: telephone, email: email, bday: bday, api_key: api_key 
+      }
 
-function saveData(){
-    let name = $("#custname").val();
-    let address = $("#address").val();
-    
-    let telephone = $("#telephone").val();
-    let email = $("#email").val();
-
-    let bday = $("#bday").val(); 
-    let api_key= localStorage.getItem('SSH_KEY');
-
-    var outData={
-        custname: name, address: address, phone: telephone, email: email, bday: bday, api_key: api_key 
-    }
-
-    data_socket_transporter.emit('savecustomer', outData)
-    data_socket_transporter.on('savecustomer', (responseObj)=>{
-        alert(responseObj.insertId)
-    })
+      data_socket_transporter.emit('savecustomer', outData)
+      data_socket_transporter.on('savecustomer', (responseObj)=>{
+          alert(responseObj.insertId)
+      })
 
 
-}
-function updateData(){
-    let custid = $("#cust_id").val();
-    let name = $("#custname").val();
-    let address = $("#address").val();
-    
-    let telephone = $("#telephone").val();
-    let email = $("#email").val();
+  }
 
-    let bday = $("#bday").val(); 
+  function updateData() {
+      let custid = $("#cust_id").val();
+      let name = $("#custname").val();
+      let address = $("#address").val();
+      
+      let telephone = $("#telephone").val();
+      let email = $("#email").val();
 
-    var outData={
-        cust_id: custid, custname: name, address: address, phone: telephone, email: email, bday: bday 
-    }
- 
-    data_socket_transporter.emit('updatecustomer', outData)
+      let bday = $("#bday").val(); 
+
+      var outData={
+          cust_id: custid, custname: name, address: address, phone: telephone, email: email, bday: bday 
+      }
+  
+      data_socket_transporter.emit('updatecustomer', outData)
+      data_socket_transporter.on('updatecustomer', (dataResponse)=>{
+        console.log()
+      })
 
 
-}
+  }
 
-data_socket_transporter.on('errmsg', (err)=>{
-    alert(err.sqlMessage)
-})
 </script>
 </body>
 </html>

@@ -93,7 +93,7 @@ $(function () {
     /**
      * 
      */
-    data_socket_transporter.emit('get_initial_board_data', {api_key: api_key});
+    data_socket_transporter.emit('get_initial_board_data', {api_key: 512644});
 
     const lbl = ['Cost Of Sales', 'Operational Cost', 'Feed Cost', 'Drug Cost', 'Mortality Cost', 'Labour'];
     const dat = [700,500,400,600,300,100]

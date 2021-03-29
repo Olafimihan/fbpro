@@ -47,8 +47,6 @@ let outResultArray = [];
 // app.use('public', express.static(process.cwd() + 'public'));
 // app.engine('html', require('ejs').renderFile);
 
-app.set('view engine', 'ejs');
-
 app.set('views', __dirname);
 app.use(express.static(htmlPath));
 app.use(cors());
