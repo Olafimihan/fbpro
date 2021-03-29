@@ -82,7 +82,7 @@
             
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
-                <tr style="font-size: 12px; font-weight: bolder;">
+                <tr style="font-size: 11px; font-weight: bolder;">
                   <th>S/N</th>
                   <th>Customer Name</th>
                   <th>Address</th>
@@ -92,7 +92,7 @@
                   
                 </tr>
                 </thead>
-                <tbody id="custdata">
+                <tbody style="font-size: 11px;" id="custdata">
                 
 
                 </tbody>
@@ -282,16 +282,12 @@ function includeHTML() {
  data_socket_transporter.emit('get customers list', {api_key: api_key});
   
   data_socket_transporter.on('get customers list', (data)=>{
-   
-      //  console.log(data)
-
-       //var dataObject = data();
     var mydataContent = "";
     var couter=0;
     for(var x =0; x<data.length; x++){
      couter++;
        mydataContent+= '<tr><td>'+ couter  +'</td> <td>'+ data[x].cust_company_name  +'</td> <td>'+ data[x].address  +'</td> <td>'+ data[x].e_mail  +'</td> <td>'+ data[x].telephone_no  +'</td> <td>'+ data[x].birthdate  + '</td> <td> <a href="#"><i class="fa fa-edit" id="'+data[x].cust_id+'" onclick="editter(this.id)"></i></a> <i class="fa fa-trash"></i></td></tr>';     
-  }
+    }
     $("#custdata").html(mydataContent)
   })
 
@@ -332,7 +328,18 @@ function saveData(){
 
     data_socket_transporter.emit('savecustomer', outData)
     data_socket_transporter.on('savecustomer', (responseObj)=>{
-        alert(responseObj.insertId)
+      data_socket_transporter.emit('get customers list', {api_key: api_key});
+      data_socket_transporter.on('get customers list', (data)=>{
+        var mydataContent = "";
+        var couter=0;
+        for(var x =0; x<data.length; x++){
+        couter++;
+          mydataContent+= '<tr><td>'+ couter  +'</td> <td>'+ data[x].cust_company_name  +'</td> <td>'+ data[x].address  +'</td> <td>'+ data[x].e_mail  +'</td> <td>'+ data[x].telephone_no  +'</td> <td>'+ data[x].birthdate  + '</td> <td> <a href="#"><i class="fa fa-edit" id="'+data[x].cust_id+'" onclick="editter(this.id)"></i></a> <i class="fa fa-trash"></i></td></tr>';     
+        }
+        $("#custdata").html(mydataContent)
+      })
+
+        // alert(responseObj.insertId)
     })
 
 

@@ -93,11 +93,24 @@ $(function () {
     /**
      * 
      */
-    data_socket_transporter.emit('get_initial_board_data', {api_key: 512644});
+    const dat
+    data_socket_transporter.emit('get_initial_board_data', {api_key: localStorage.getItem('SSH_KEY')});
+    data_socket_transporter.on('get_initial_board_data', (resultSetObj) => {
+      $("#feedcost").html(resultSetObj.feedCostRS);
+      let str_builder_tbl="<table class='table table-bordered' >"
+      var counter=0;
+      for (var x=0; x < lbl.length; x++) {
+          counter++;
+          str_builder_tbl += "<tr><td>"+ counter +"</td><td>"+ lbl[x] +"</td><td>"+ dat[x] +"</td></tr>"
+      }
+      str_builder_tbl += "</table>";
 
+      $("#mdiv").html(str_builder_tbl);
+      dat = [700,500,400,600,300,100]
+
+  });
     const lbl = ['Cost Of Sales', 'Operational Cost', 'Feed Cost', 'Drug Cost', 'Mortality Cost', 'Labour'];
-    const dat = [700,500,400,600,300,100]
-
+    
     var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
     var donutData        = {
       labels          : ['Cost Of Sales', 'Operational Cost', 'Feed Cost', 'Drug Cost', 'Mortality Cost', 'Labour'],
@@ -159,24 +172,7 @@ $(function () {
       options: barChartOptions
     })
 
-    data_socket_transporter.on('get_initial_board_data', (resultSetObj)=>{
-        console.log(resultSetObj);
-        $("#feedcost").html(resultSetObj.feedCostRS);
-        let str_builder_tbl="<table class='table table-bordered' >"
-
-        var counter=0;
-        for (var x=0; x < lbl.length; x++){
-            counter++;
-            str_builder_tbl += "<tr><td>"+ counter +"</td><td>"+ lbl[x] +"</td><td>"+ dat[x] +"</td></tr>"
-        }
-
-        str_builder_tbl += "</table>";
-
-        $("#mdiv").html(str_builder_tbl);
-
-        console.log(str_builder_tbl)
-
-    });
+    
 
     //---------------------
     //- STACKED BAR CHART -
