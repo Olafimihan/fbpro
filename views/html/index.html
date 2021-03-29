@@ -97,13 +97,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js" integrity="sha256-bQmrZe4yPnQrLTY+1gYylfNMBuGfnT/HKsCGX+9Xuqo=" crossorigin="anonymous"></script>
 
 <!-- Bootstrap 4 -->
+
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
-
-<script src="dist/js/socket.js"></script>
-
-
+<script src="dist/js/socket.js"></script> 
+<!-- <script src="dist/js/index.js"></script> -->
 <script type="text/javascript">
 
   $(document).ready(function(){
@@ -115,17 +114,21 @@
       }
 
       data_socket_transporter.emit('adminlogin', loginObject);
-      data_socket_transporter.on('adminlogin', (loginObject)=>{
-        console.log(loginObject)
-        if(loginObject.result){
-          localStorage.setItem('SSH_KEY', loginObject.api_key);
+
+      data_socket_transporter.on('adminlogin', (respObject)=>{
+        console.log(respObject)
+        if(respObject.result){
+          localStorage.setItem('SSH_KEY', respObject.api_key);
           window.location='dashboard.html';
         }else{
-          window.location='404.html';
+          alert(respObject.api_key)
+          //window.location='404.html';
         }
-        // 
+        
       });
+
     })
+    
   });
 
   
