@@ -145,15 +145,11 @@
 
 <!-- Bootstrap 4 -->
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
-
 <script src="dist/js/socket.js"></script>
-
-<script type="text/javascript">
-   
-
-
+<script type="text/javascript" >
   $(document).ready(function() {
     // console.log(data_socket_transporter);
 
@@ -180,8 +176,8 @@
       
       data_socket_transporter.on('registration success', (msg) => {
         console.log(msg);
-        console.log(msg.msg);
-        console.log(msg.api_key);
+        // console.log(msg.msg);
+        // console.log(msg.api_key);
 
         localStorage.setItem('SSH_KEY', msg.api_key);
 

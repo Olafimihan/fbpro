@@ -283,7 +283,7 @@ function includeHTML() {
   
   data_socket_transporter.on('get customers list', (data)=>{
    
-       console.log(data)
+      //  console.log(data)
 
        //var dataObject = data();
     var mydataContent = "";
@@ -300,7 +300,7 @@ function includeHTML() {
     // alert(id)
     data_socket_transporter.emit('editcustomer', id)
     data_socket_transporter.on('editcustomer', (resultSet)=>{
-        console.log(resultSet)
+        // console.log(resultSet)
 
         $("#cust_id").val(resultSet[0].cust_id);
         $("#custname").val(resultSet[0].cust_company_name);
@@ -353,7 +353,7 @@ function updateData(){
  
     data_socket_transporter.emit('updatecustomer', outData);
     data_socket_transporter.on('updatecustomer', (dataResponse)=>{
-      console.log(dataResponse)
+      // console.log(dataResponse)
     })
 
 

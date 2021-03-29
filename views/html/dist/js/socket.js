@@ -9,8 +9,8 @@ let api_key = localStorage.getItem("SSH_KEY");
 //     // return;
 // };
 
-console.log("SSH_KEY: "+api_key);
-console.log(data_socket_transporter);
+// console.log("SSH_KEY: "+api_key);
+// console.log(data_socket_transporter);
 
 data_socket_transporter.on('errmsg', (errmsg) => {
     console.log(errmsg);
