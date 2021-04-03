@@ -64,6 +64,10 @@ let storage = multer.diskStorage({
  console.log(storage)
 
  
+app.get('/', (req, res)=>{
+    console.log(req.hostname)
+    res.send(__dirname +  '/views/index.html')
+})
    
  
 server.listen(port, function() {
